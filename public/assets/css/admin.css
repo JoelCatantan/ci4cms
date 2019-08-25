@@ -1,0 +1,183 @@
+* {
+    font-family: arial;
+}
+
+body {
+    background-color: #50646f;
+    padding: 0;
+    margin: 0;
+}
+
+body > .container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.left-nav {
+    background-color: #50646f;
+    width: 220px;
+    float: left;
+}
+
+.left-nav *,
+.left-nav a {
+    color: #f9fbf8;
+}
+
+.profile-part {
+    width: 100%;
+    padding: 20px 30px;
+    border-bottom: solid 1px #909090;
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-part ul:not(.profile-info--nav) {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.profile-part li {
+    list-style: none;
+    font-size: 14px;
+}
+
+.profile-part > img {
+    margin-bottom: 10px;
+}
+
+.profile-info--toggle-nav {
+    font-size: 13px !important;
+}
+
+.profile-info--toggle-nav > i {
+    float: right;
+    font-size: 10px;
+    -webkit-transition: -webkit-transform .3s;
+    transition: transform .3s;
+}
+
+.profile-part:hover .profile-info--toggle-nav > i {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.profile-info--nav *,
+.profile-info--nav a {
+    color: #50646f;
+    font-size: 12px;
+}
+
+.profile-info--nav a {
+    display: block;
+    padding: 5px 10px;
+}
+
+.profile-info--nav i {
+    width: 17px;
+}
+
+ul.profile-info--nav {
+    visibility: hidden;
+    background-color: #f9fbf8;
+    padding: 13px 3px !important;
+    position: absolute;
+    opacity: 0;
+    border-radius: 3px;
+    left: 15px;
+    right: 15px;
+    margin-top: -5px;
+    -webkit-transition: opacity .4s, margin-top .4s, visibility .4s; /* Safari prior 6.1 */
+    transition: opacity .4s, margin-top .4s, visibility .4s;
+}
+
+.left-nav-part > ul > li {
+    list-style: none;
+}
+
+.left-nav-part > ul > li i {
+    width: 20px;
+}
+
+.left-nav-part > ul {
+    margin: 0;
+    padding: 0;
+}
+
+.left-nav-part {
+    padding: 15px 20px;
+}
+
+.profile-part:hover ul.profile-info--nav {
+    visibility: visible;
+    margin-top: 0;
+    opacity: 1;
+}
+
+/* left navigation -- start */
+
+.left-nav-part > ul > li > ul > li {
+    list-style: disc;
+}
+
+.left-nav-part > ul > li > ul > li > ul > li {
+    list-style: circle;
+}
+
+.left-nav-part > ul > li > ul {
+    background-color: #f9fbf8;
+    margin: 0 -15px;
+    padding-left: 30px;
+    border-radius: 3px;
+}
+
+.left-nav-part > ul > li > ul *,
+.left-nav-part > ul > li > ul a {
+    color: #50646f;
+    font-size: 14px;
+}
+
+.left-nav-part a {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.left-nav-part > ul > li > ul > li ul {
+    padding-left: 20px;
+    margin-left: -10px;
+}
+
+.left-nav-part > ul > li > ul > li:first-child {
+    padding-top: 10px;
+}
+
+.left-nav-part > ul > li > ul > li:last-child {
+    padding-bottom: 10px;
+}
+
+.left-nav-part > ul > li > ul > li > a,
+.left-nav-part > ul > li > ul > li > ul > li a {
+    padding: 2px 0;
+}
+
+.left-nav-part > ul ul {
+    visibility: hidden;
+    opacity: 0;
+    height: auto;
+    overflow: hidden;
+    transition: height .3s, opacity.3s, visibility .3s;
+}
+
+.left-nav-part ul.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* left navigation -- end */
+
+main {
+    background-color: #f9fbf8;
+    margin-left: 220px;
+    min-height: 600px;
+}

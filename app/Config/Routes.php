@@ -72,7 +72,25 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Dashboard::index', ['filter' => 'acl']);
+
+$routes->group('login', function ($routes) {
+	$routes->get('/', 'Login::index', ['as' => 'login']);
+	$routes->post('/', 'Login::varifyCredentials');
+	$routes->get('logout', 'Login::logout');
+});
+
+$routes->resource('users', ['filter' => 'acl']);
+
+// Equivalent to the following:
+// $routes->get('photos',                 'Photos::index');
+// $routes->get('photos/new',             'Photos::new');
+// $routes->get('photos/(:segment)/edit', 'Photos::edit/$1');
+// $routes->get('photos/(:segment)',      'Photos::show/$1');
+// $routes->post('photos',                'Photos::create');
+// $routes->patch('photos/(:segment)',    'Photos::update/$1');
+// $routes->put('photos/(:segment)',      'Photos::update/$1');
+// $routes->delete('photos/(:segment)',   'Photos::delete/$1');
 
 /**
  * --------------------------------------------------------------------
