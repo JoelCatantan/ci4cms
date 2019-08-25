@@ -47,8 +47,8 @@ $(() => {
                 menu_to_collapse
                     .addClass('jo-submenu--collapsed')
                     .children()
-                    .each(() => {
-                        height += clicked_link.outerHeight()
+                    .each((index, elem) => {
+                        height += $(elem).outerHeight()
                     })
                     .promise()
                     .then(() => {
@@ -64,7 +64,9 @@ $(() => {
                 .css({height: collapsables.outerHeight() + 'px'})
                 .promise()
                 .then(() => {
-                    collapsables.css({height: 0}).removeClass('jo-submenu--collapsed')
+                    collapsables
+                        .css({height: 0})
+                        .removeClass('jo-submenu--collapsed')
                 })
 
             submenu
