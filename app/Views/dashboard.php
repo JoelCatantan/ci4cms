@@ -9,6 +9,7 @@
         <title>PIZZAo6 System</title>
         <?= link_tag('assets/vendor/bootstrap/css/bootstrap.min.css') ?>
         <?= link_tag('assets/vendor/Font-Awesome-4.7.0/css/font-awesome.min.css') ?>
+        <?= link_tag('assets/jo/jo-menus/jo-menus.css') ?>
         <?= link_tag('assets/css/admin.css') ?>
     </head>
     <body>
@@ -40,15 +41,15 @@
                         </li>
                     </ul>
                 </div>
-                <div class="left-nav-part">
+                <div class="left-nav-part jo-menu">
                     <ul>
                         <li>
-                            <a class="has-arrow" href="#" aria-expanded="false">
+                            <a>
                                 <i class="fa fa-dashboard"></i> Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-users"></i> Users
                             </a>
                         </li>
@@ -57,12 +58,12 @@
                                 <i class="fa fa-sitemap"></i> Roles
                             </a>
                             <ul>
-                                <li><a href="#">Priveleges</a></li>
-                                <li><a href="#">Account</a></li>
+                                <li><a>Priveleges</a></li>
+                                <li><a>Account</a></li>
                                 <li><a href="#">Profile</a>
                                     <ul>
-                                        <li><a href="#">Change password</a></li>
-                                        <li><a href="#">Content</a></li>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -74,15 +75,15 @@
                             <ul>
                                 <li><a href="#">Priveleges</a>
                                     <ul>
-                                        <li><a href="#">Change password</a></li>
-                                        <li><a href="#">Content</a></li>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Account</a></li>
+                                <li><a>Account</a></li>
                                 <li><a href="#">Profile</a>
                                     <ul>
-                                        <li><a href="#">Change password</a></li>
-                                        <li><a href="#">Content</a></li>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -100,5 +101,6 @@
     </body>
     <?= script_tag('assets/vendor/jquery-3.4.1.min.js') ?>
     <?= script_tag('assets/vendor/bootstrap/js/bootstrap.min.js') ?>
+    <?= script_tag('assets/jo/jo-menus/jo-menus.js') ?>
     <?= script_tag('assets/js/admin.js') ?>
 </html>

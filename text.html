@@ -1,0 +1,256 @@
+<?= doctype() ?>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Joel Catantan">
+        <title>PIZZAo6 System</title>
+
+        <link href="./public/assets/vendor/Font-Awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <style>
+        .jo-menu a {
+    cursor: pointer;
+}
+
+.jo-menu > ul > li > ul > li,
+.jo-menu > ul > li > ul > li > ul > li {
+    list-style: none;
+}
+
+.jo-menu > ul > li > ul {
+    background-color: #f9fbf8;
+    margin: 0;
+    padding-left: 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.jo-menu > ul > li > ul *,
+.jo-menu > ul > li > ul a {
+    color: #50646f;
+    font-size: 14px;
+}
+
+.jo-menu a {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.jo-menu > ul > li > ul > li:first-child {
+    padding-top: 10px;
+}
+
+.jo-menu > ul > li > ul > li:last-child {
+    padding-bottom: 10px;
+}
+
+.jo-menu > ul > li > ul > li > a,
+.jo-menu > ul > li > ul > li > ul > li a {
+    padding: 2px 0;
+}
+
+.jo-menu > ul ul {
+    visibility: hidden;
+    opacity: 0;
+    height: auto;
+    overflow: hidden;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.jo-menu ul.jo-submenu--collapsed {
+    visibility: visible;
+    opacity: 1;
+}
+
+.jo-link-icon {
+    float: right;
+}
+
+.jo-menu > ul > li > .jo-link {
+    text-decoration: none;
+}
+
+.jo-collapse-icon {
+    float: right;
+}
+
+.jo-submenu a:hover {
+    background-color: #eee;
+    text-decoration: none;
+}
+
+.jo-menu > ul > li > .jo-link:hover {
+    background-color: #62747d;
+}
+
+.jo-menu > ul > li > ul > li > a {
+    padding-left: 15px;
+}
+
+.jo-menu > ul > li > ul > li > ul > li a {
+    padding-left: 35px;
+    position: relative;
+}
+
+.jo-menu > ul > li > ul > li > ul > li a::after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f101";
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="left-nav">
+                <div class="left-nav-part jo-menu">
+                    <ul>
+                        <li>
+                            <a>
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="fa fa-users"></i> Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sitemap"></i> Roles
+                            </a>
+                            <ul>
+                                <li><a>Priveleges</a></li>
+                                <li><a>Account</a></li>
+                                <li><a href="#">Profile</a>
+                                    <ul>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog"></i> Settings
+                            </a>
+                            <ul>
+                                <li><a href="#">Priveleges</a>
+                                    <ul>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>Account</a></li>
+                                <li><a href="#">Profile</a>
+                                    <ul>
+                                        <li><a>Change password</a></li>
+                                        <li><a>Content</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <main>
+                <div class="header"></div>
+                <div class="body"></div>
+                <div class="footer"></div>
+            </main>
+            <div class="right-nav"></div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $.jo_menu = {
+                selector: '.jo-menu',
+                animationSpeedMS: 300,
+                link_icon_primary_default: 'fa fa-plus-square',
+                link_icon_primary_collapsed: 'fa fa-minus-square',
+            }
+
+            let jo_menu = $(`${$.jo_menu.selector} > ul`)
+            let animationSpeedMS = $.jo_menu.animationSpeedMS / 1000
+
+            jo_menu
+                .find('ul')
+                .css({
+                    height: 0,
+                    '-webkit-transition':
+                        `-webkit-height ${animationSpeedMS}s, ` +
+                        `-webkit-opacity ${animationSpeedMS}s, ` +
+                        `-webkit-visibility ${animationSpeedMS}s`,
+                    transition:
+                        `height ${animationSpeedMS}s, ` +
+                        `opacity ${animationSpeedMS}s, ` +
+                        `visibility ${animationSpeedMS}s`
+                })
+                .addClass('jo-submenu')
+
+            jo_menu
+                .find('a[href="#"]')
+                .addClass('jo-link')
+                .append(`<i class="jo-collapse-icon ${$.jo_menu.link_icon_primary_default}"></i>`)
+                .click(function(e) {
+                    e.preventDefault()
+
+                    let clicked_link = $(this)
+                    let menu_to_collapse = clicked_link.next('.jo-submenu')
+                    let submenu = clicked_link.parent().parent()
+                    let collapsables = submenu.find('.jo-submenu--collapsed')
+                    let link_icon = `${$.jo_menu.link_icon_primary_default} ${$.jo_menu.link_icon_primary_collapsed}`
+
+                    if (!menu_to_collapse.hasClass('jo-submenu--collapsed')) {
+                        let height = 0
+                        menu_to_collapse
+                            .addClass('jo-submenu--collapsed')
+                            .children()
+                            .each(() => {
+                                height += clicked_link.outerHeight()
+                            })
+                            .promise()
+                            .then(() => {
+                                menu_to_collapse.css({height})
+                            })
+
+                        setTimeout(() => {
+                            menu_to_collapse.css({height: 'auto'})
+                        }, $.jo_menu.animationSpeedMS)
+                    }
+
+                    collapsables
+                        .css({height: collapsables.outerHeight() + 'px'})
+                        .promise()
+                        .then(() => {
+                            collapsables.css({height: 0}).removeClass('jo-submenu--collapsed')
+                        })
+
+                    submenu
+                        .find('.jo-collapse-icon--collapsed')
+                        .toggleClass(link_icon)
+                        .removeClass('jo-collapse-icon--collapsed')
+                        .promise()
+                        .then(function() {
+                            if (menu_to_collapse.hasClass('jo-submenu--collapsed')) {
+                                clicked_link
+                                    .find('.jo-collapse-icon')
+                                    .addClass('jo-collapse-icon--collapsed')
+                                    .toggleClass(link_icon)
+                            }
+                        })
+                })
+                </script>
+</html>

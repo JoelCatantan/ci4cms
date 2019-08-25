@@ -1,0 +1,96 @@
+.jo-menu a {
+    cursor: pointer;
+}
+
+.jo-menu > ul > li > ul > li,
+.jo-menu > ul > li > ul > li > ul > li {
+    list-style: none;
+}
+
+.jo-menu > ul > li > ul {
+    background-color: #f9fbf8;
+    margin: 0;
+    padding-left: 0;
+    border-radius: 2px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.jo-menu > ul > li > ul *,
+.jo-menu > ul > li > ul a {
+    color: #50646f;
+    font-size: 14px;
+}
+
+.jo-menu a {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.jo-menu > ul > li > ul > li:first-child {
+    padding-top: 7px;
+    border-top: solid #5eb358 3px;
+}
+
+.jo-menu > ul > li > ul > li:last-child {
+    padding-bottom: 10px;
+}
+
+.jo-menu > ul > li > ul > li > a,
+.jo-menu > ul > li > ul > li > ul > li a {
+    padding: 2px 0;
+}
+
+.jo-menu > ul ul {
+    visibility: hidden;
+    opacity: 0;
+    height: auto;
+    overflow: hidden;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.jo-menu ul.jo-submenu--collapsed {
+    visibility: visible;
+    opacity: 1;
+}
+
+.jo-link-icon {
+    float: right;
+}
+
+.jo-menu > ul > li > .jo-link {
+    text-decoration: none;
+}
+
+.jo-collapse-icon {
+    float: right;
+}
+
+.jo-submenu a:hover {
+    background-color: #eee;
+    text-decoration: none;
+}
+
+.jo-menu > ul > li > .jo-link:hover {
+    background-color: #62747d;
+}
+
+.jo-menu > ul > li > ul > li > a {
+    padding-left: 20px;
+    padding-right: 35px;
+}
+
+.jo-menu > ul > li > ul > li > ul > li a {
+    padding-left: 25px;
+    position: relative;
+}
+
+.jo-submenu .jo-collapse-icon {
+    top: 5px !important;
+}
+
+.jo-menu > ul > li > ul > li > ul > li > a > i {
+    width: 15px;
+}

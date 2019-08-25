@@ -105,7 +105,22 @@ ul.profile-info--nav {
 }
 
 .left-nav-part {
-    padding: 15px 20px;
+    padding: 15px 5px;
+}
+
+.left-nav-part > ul > li > a {
+    padding: 5px 35px 5px 20px;
+}
+
+.left-nav-part .jo-collapse-icon {
+    width: auto;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+}
+
+.left-nav-part .jo-link {
+    position: relative;
 }
 
 .profile-part:hover ul.profile-info--nav {
@@ -113,68 +128,6 @@ ul.profile-info--nav {
     margin-top: 0;
     opacity: 1;
 }
-
-/* left navigation -- start */
-
-.left-nav-part > ul > li > ul > li {
-    list-style: disc;
-}
-
-.left-nav-part > ul > li > ul > li > ul > li {
-    list-style: circle;
-}
-
-.left-nav-part > ul > li > ul {
-    background-color: #f9fbf8;
-    margin: 0 -15px;
-    padding-left: 30px;
-    border-radius: 3px;
-}
-
-.left-nav-part > ul > li > ul *,
-.left-nav-part > ul > li > ul a {
-    color: #50646f;
-    font-size: 14px;
-}
-
-.left-nav-part a {
-    display: block;
-    padding: 5px 0;
-    font-size: 14px;
-}
-
-.left-nav-part > ul > li > ul > li ul {
-    padding-left: 20px;
-    margin-left: -10px;
-}
-
-.left-nav-part > ul > li > ul > li:first-child {
-    padding-top: 10px;
-}
-
-.left-nav-part > ul > li > ul > li:last-child {
-    padding-bottom: 10px;
-}
-
-.left-nav-part > ul > li > ul > li > a,
-.left-nav-part > ul > li > ul > li > ul > li a {
-    padding: 2px 0;
-}
-
-.left-nav-part > ul ul {
-    visibility: hidden;
-    opacity: 0;
-    height: auto;
-    overflow: hidden;
-    transition: height .3s, opacity.3s, visibility .3s;
-}
-
-.left-nav-part ul.active {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* left navigation -- end */
 
 main {
     background-color: #f9fbf8;
