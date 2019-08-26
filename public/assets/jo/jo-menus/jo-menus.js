@@ -37,14 +37,16 @@ $(() => {
             e.preventDefault()
 
             let clicked_link = $(this)
-            let menu_to_collapse = clicked_link.next('.jo-submenu')
+            let submenu_to_toggle = clicked_link.next('.jo-submenu')
+            let is_collapsed_already = submenu_to_toggle.hasClass('jo-submenu--collapsed')
             let submenu = clicked_link.parent().parent()
             let collapsables = submenu.find('.jo-submenu--collapsed')
             let link_icon = `${$.jo_menu.link_icon_default} ${$.jo_menu.link_icon_collapsed}`
 
-            if (!menu_to_collapse.hasClass('jo-submenu--collapsed')) {
+            if (!is_collapsed_already) {
                 let height = 0
-                menu_to_collapse
+                clicked_link.addClass('jo-link--active')
+                submenu_to_toggle
                     .addClass('jo-submenu--collapsed')
                     .children()
                     .each((index, elem) => {
@@ -52,11 +54,11 @@ $(() => {
                     })
                     .promise()
                     .then(() => {
-                        menu_to_collapse.css({height})
+                        submenu_to_toggle.css({height})
                     })
 
                 setTimeout(() => {
-                    menu_to_collapse.css({height: 'auto'})
+                    submenu_to_toggle.css({height: 'auto'})
                 }, $.jo_menu.animationSpeedMS)
             }
 
@@ -70,12 +72,22 @@ $(() => {
                 })
 
             submenu
+                .find('.jo-link--active')
+                .removeClass('jo-link--active')
+                .promise()
+                .then(() => {
+                    if (!is_collapsed_already) {
+                        clicked_link.addClass('jo-link--active')
+                    }
+                })
+
+            submenu
                 .find('.jo-collapse-icon--collapsed')
                 .toggleClass(link_icon)
                 .removeClass('jo-collapse-icon--collapsed')
                 .promise()
                 .then(function() {
-                    if (menu_to_collapse.hasClass('jo-submenu--collapsed')) {
+                    if (!is_collapsed_already) {
                         clicked_link
                             .find('.jo-collapse-icon')
                             .addClass('jo-collapse-icon--collapsed')

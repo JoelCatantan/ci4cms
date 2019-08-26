@@ -45,17 +45,17 @@
                     <ul>
                         <li>
                             <a>
-                                <i class="fa fa-dashboard"></i> Dashboard
+                                <i class="fa fa-dashboard"></i> <label class="primary-menu-label">Dashboard</label>
                             </a>
                         </li>
                         <li>
                             <a>
-                                <i class="fa fa-users"></i> Users
+                                <i class="fa fa-users"></i> <label class="primary-menu-label">Users</label>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-sitemap"></i> Roles
+                                <i class="fa fa-sitemap"></i> <label class="primary-menu-label">Roles</label>
                             </a>
                             <ul>
                                 <li><a>Priveleges</a></li>
@@ -70,7 +70,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-cog"></i> Settings
+                                <i class="fa fa-cog"></i> <label class="primary-menu-label">Settings</label>
                             </a>
                             <ul>
                                 <li><a href="#">Priveleges</a>
@@ -92,7 +92,15 @@
                 </div>
             </div>
             <main>
-                <div class="header"></div>
+                <div class="header">
+                    <button class="left-menu-toggle">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="top-nav-part">
+                        <li class="app-version">PIZZAo6 Template V1.0</li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    </ul>
+                </div>
                 <div class="body"></div>
                 <div class="footer"></div>
             </main>
