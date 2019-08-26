@@ -297,7 +297,11 @@ main {
     padding-left: 10px !important;
 }
 
-.top-nav-part {float: right;margin: 0;padding: 0;}
+.top-nav-part {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
 
 .top-nav-part li {
     list-style: none;
