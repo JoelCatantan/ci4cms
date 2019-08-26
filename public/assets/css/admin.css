@@ -16,9 +16,9 @@ body > .container-fluid {
 .left-nav {
     background-color: #50646f;
     width: 220px;
-    float: left;
     --webkit-transition: width .3s;
-    transition: width .4s;
+    transition: width .3s;
+    float: left;
 }
 
 .left-nav *,
@@ -89,8 +89,8 @@ ul.profile-info--nav {
     left: 15px;
     right: 15px;
     margin-top: -5px;
-    -webkit-transition: opacity .4s, margin-top .4s, visibility .4s; /* Safari prior 6.1 */
-    transition: opacity .4s, margin-top .4s, visibility .4s;
+    -webkit-transition: opacity .3s, margin-top .3s, visibility .3s; /* Safari prior 6.1 */
+    transition: opacity .3s, margin-top .3s, visibility .3s;
 }
 
 .left-nav-part > ul > li {
@@ -139,6 +139,7 @@ main .header {
     right: 0;
     box-shadow: 0 0 5px -2px #5eb358;
     border-left: solid 3px #5eb358;
+    background-color: #f9fbf8;
 }
 
 .header *, .header a {
@@ -166,15 +167,14 @@ main .header {
 main {
     background-color: #f9fbf8;
     margin-left: 220px;
-    min-height: 600px;
     border-left: solid 3px #5eb358;
-    border-bottom: solid 3px #5eb358;
+    min-height: 600px;
 }
 
 .mini-left-menu main .header {
     left: 50px;
-    --webkit-transition: left .4s;
-    transition: left .4s;
+    --webkit-transition: left .3s;
+    transition: left .3s;
 }
 
 .mini-left-menu .left-nav {
@@ -183,8 +183,8 @@ main {
 
 .mini-left-menu main {
     margin-left: 50px;
-    -webkit-transition: margin-left .4s;
-    transition: margin-left .4s;
+    -webkit-transition: margin-left .3s;
+    transition: margin-left .3s;
 }
 
 .mini-left-menu .primary-menu-label {
@@ -213,6 +213,11 @@ main {
     position: relative;
 }
 
+.left-nav-part > ul > li > .jo-submenu {
+    left: 220px;
+    transition: left .3s;
+}
+
 .mini-left-menu .left-nav-part > ul > li > .jo-submenu {
     position: absolute;
     left: 50px;
@@ -222,7 +227,7 @@ main {
 }
 
 .mini-left-menu .left-nav-part > ul > li > .jo-link {
-    border-right: solid 3px #5eb358;
+    border-right: solid 2px #5eb358;
 }
 
 .mini-left-menu .left-nav-part > ul > li > .jo-link i:first-child {
