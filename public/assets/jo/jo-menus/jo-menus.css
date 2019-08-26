@@ -11,9 +11,7 @@
     background-color: #f9fbf8;
     margin: 0;
     padding-left: 0;
-    border-radius: 2px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-bottom: solid 1px #5eb358;
 }
 
 .jo-menu > ul > li > ul *,
@@ -29,8 +27,7 @@
 }
 
 .jo-menu > ul > li > ul > li:first-child {
-    padding-top: 12px;
-    border-top: solid 2px #909090;
+    padding-top: 10px;
 }
 
 .jo-menu > ul > li > ul > li:last-child {
@@ -73,13 +70,9 @@
     text-decoration: none;
 }
 
-.jo-menu > ul > li > .jo-link:hover {
-    background-color: #62747d;
-}
-
 .jo-menu > ul > li > ul > li > .jo-link {
-    padding-left: 20px;
-    padding-right: 35px;
+    padding-left: 25px;
+    padding-right: 34px;
 }
 
 .jo-menu > ul > li > ul > li > ul > li a {
@@ -88,7 +81,7 @@
 }
 
 .jo-submenu .jo-collapse-icon {
-    top: 5px !important;
+    top: 8px !important;
 }
 
 .jo-menu > ul > li > ul > li > ul > li > a > i {
@@ -101,5 +94,5 @@
 }
 
 .jo-menu > ul > li > ul > li > a {
-    padding-left: 20px;
+    padding-left: 25px;
 }
