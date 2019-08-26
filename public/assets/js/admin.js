@@ -23,4 +23,11 @@ $(function() {
             profile_part.addClass('profile-part-active')
         }
     })
+
+    fixedHeight()
+    $(window).resize(fixedHeight)
+    function fixedHeight() {
+        let window_height = $(window).height()
+        $('main').css({'min-height': window_height + 'px'})
+    }
 })

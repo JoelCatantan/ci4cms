@@ -132,7 +132,7 @@ ul.profile-info--nav {
 }
 
 main .header {
-    height: 39px;
+    height: 36px;
     position: fixed;
     top: 0;
     left: 220px;
@@ -144,16 +144,19 @@ main .header {
 
 .header *, .header a {
     color: #555;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .left-menu-toggle {
     background-color: #f9fbf8;
     border: none;
-    padding: 7px 15px;
-    font-size: 17px !important;
+    padding: 8px 15px;
     cursor: pointer;
     outline: none !important;
+}
+
+.left-menu-toggle > i {
+    font-size: 18px !important;
 }
 
 .left-menu-toggle:hover,.top-nav-part a:hover {
@@ -168,7 +171,6 @@ main {
     background-color: #f9fbf8;
     margin-left: 220px;
     border-left: solid 3px #5eb358;
-    min-height: 600px;
 }
 
 .mini-left-menu main .header {
@@ -215,7 +217,6 @@ main {
 
 .left-nav-part > ul > li > .jo-submenu {
     left: 220px;
-    transition: left .3s;
 }
 
 .mini-left-menu .left-nav-part > ul > li > .jo-submenu {
@@ -311,11 +312,12 @@ main {
 .top-nav-part li {
     list-style: none;
     display: inline-block;
+    margin-left: 10px;
 }
 
 .top-nav-part a {
     text-decoration: none;
-    padding: 10px;
+    padding: 9px;
     display: block;
     margin: 0 10px;
 }
