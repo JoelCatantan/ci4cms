@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\User;
 
-class Users extends CRUDController
+class UserController extends CRUDController
 {
     private $user_model;
 
     public function __construct()
     {
-        $this->user_model = new UserModel;
+        $this->user_model = new User;
     }
 
     public function index(): string

@@ -74,10 +74,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Dashboard::index', ['filter' => 'acl']);
 
+$routes->get('logout', 'Login::logout');
 $routes->group('login', function ($routes) {
 	$routes->get('/', 'Login::index', ['as' => 'login']);
 	$routes->post('/', 'Login::varifyCredentials');
-	$routes->get('logout', 'Login::logout');
 });
 
 $routes->resource('users', ['filter' => 'acl']);

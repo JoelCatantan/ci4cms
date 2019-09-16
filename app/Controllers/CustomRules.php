@@ -23,6 +23,7 @@ class CustomRules
             ->countAllResults();
 
         $is_exists = $count > 0;
+
         if (!$is_exists) {
             $error = lang('Validation.invalid_username');
         }
@@ -37,17 +38,15 @@ class CustomRules
         $username = $this->request->getPost('username');
         $valid = true;
 
-        if ($username)
-        {
+        if ($username) {
             $user = $userModel->select(['password', 'salt'])
                 ->where('username', $username)
                 ->first();
 
-            if ($user)
-            {
+            if ($user) {
                 $valid = Hash::verify($password, $user->password, $user->salt);
-                if (!$valid)
-                {
+
+                if (!$valid) {
                     $error = lang('Validation.invalid_password');
                 }
             }

@@ -49,7 +49,7 @@ class Hash
         $salt = $salt ?? self::randomString(6, 'users', 'salt');
         $password_hashed = password_hash("$password$salt", PASSWORD_BCRYPT);
 
-        return ['password_hashed' => $password_hashed, 'salt' => $salt];
+        return ['password' => $password_hashed, 'salt' => $salt];
     }
 
     public static function verify(string $password, string $hashed, string $salt): bool

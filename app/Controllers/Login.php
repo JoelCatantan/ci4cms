@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Entities\User;
 use CodeIgniter\HTTP\RedirectResponse;
 
 class Login extends CrudController
