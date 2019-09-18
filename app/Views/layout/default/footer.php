@@ -4,8 +4,8 @@
             <?= view('layout/default/right_side_nav') ?>
         </div>
     </body>
-    <?= script_tag('assets/vendor/jquery-3.4.1.min.js') ?>
-    <?= script_tag('assets/vendor/bootstrap/js/bootstrap.min.js') ?>
+    <?= script_tag('node_modules/jquery/dist/jquery.min.js') ?>
+    <?= script_tag('node_modules/bootstrap/dist/js/bootstrap.min.js') ?>
     <?= script_tag('assets/jo/jo-menus/jo-menus.js') ?>
     <?= script_tag('assets/js/admin.js') ?>
 </html>
