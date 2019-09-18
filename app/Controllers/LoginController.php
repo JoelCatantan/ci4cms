@@ -2,13 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Config;
+use App\Controllers\BaseController;
 use App\Models\UserModel;
-use App\Entities\User;
+use App\Utils\Auth;
 use CodeIgniter\HTTP\RedirectResponse;
 
-class Login extends CrudController
+class LoginController extends BaseController
 {
-    protected $rules = [
+    private $rules = [
         'username' => 'required|alpha_numeric|is_username_valid',
         'password' => 'required|alpha_numeric|is_password_valid',
     ];
@@ -18,8 +20,8 @@ class Login extends CrudController
 
     public function __construct()
     {
-        $this->user_model = new UserModel();
         $this->auth = new Auth;
+        $this->user_model = new UserModel();
     }
 
 	public function index()
@@ -29,21 +31,22 @@ class Login extends CrudController
             return redirect('/');
         }
 
-        return view('layout/login', [
+        return view('layout/' . Config::DEFAULT_TEMPLATE . '/login', [
             'validation_errors' => $this->session->getFlashdata('erros'),
         ]);
     }
 
-    public function varifyCredentials(): ?RedirectResponse
+    public function verifyCredentials(): ?RedirectResponse
     {
         $redirect = redirect('/');
 
-        if ($this->isValidationSucceed())
+        if ($this->validate($this->rules))
         {
             $this->auth->initSession();
         }
         else
         {
+            $this->session->setFlashdata('login_errors', $this->validation->getErrors());
             $redirect = $this->redirectWithErrorFlasData('login');
         }
 

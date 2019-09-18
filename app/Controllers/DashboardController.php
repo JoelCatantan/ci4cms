@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
-class Dashboard extends BaseController
+class DashboardController extends BaseController
 {
-	protected $helpers = ['html'];
-
 	public function index()
 	{
 		return view('dashboard');

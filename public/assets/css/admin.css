@@ -457,3 +457,7 @@ main {
 .right-nav-container.active {
     right: 0;
 }
+
+main .body {
+    padding: 55px 30px;
+}

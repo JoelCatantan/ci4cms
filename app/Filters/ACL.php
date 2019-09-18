@@ -2,23 +2,19 @@
 
 namespace App\Filters;
 
+use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\Filters\FilterInterface;
-use App\Controllers\Auth;
+use Config\Services;
 
 class ACL implements FilterInterface
 {
     public function before(RequestInterface $request)
     {
-        $auth = new Auth;
-        if (!$auth->isLoggedIn()) {
+        if (!boolval(Services::session()->auth_id)) {
             return redirect('login');
         }
     }
 
-    public function after(RequestInterface $request, ResponseInterface $response)
-    {
-
-    }
+    public function after(RequestInterface $request, ResponseInterface $response) { }
 }

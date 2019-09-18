@@ -2,21 +2,22 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\UserModel;
+use App\Controllers\ResourceBaseController;
 
-class UserController extends CRUDController
+class UserController extends ResourceBaseController
 {
     private $user_model;
 
     public function __construct()
     {
-        $this->user_model = new User;
+        $this->user_model = new UserModel;
     }
 
-    public function index(): string
+    public function index()
     {
         return view('users/list_of_users', [
-            'users' => $this->user_model->get(),
+            'users' => $this->user_model->findAll(),
         ]);
     }
 
@@ -25,12 +26,12 @@ class UserController extends CRUDController
 
     }
 
-    public function edit(int $id)
+    public function edit($id = NULL)
     {
 
     }
 
-    public function show(int $id)
+    public function show($id = NULL)
     {
 
     }
@@ -40,12 +41,12 @@ class UserController extends CRUDController
 
     }
 
-    public function update(int $id)
+    public function update($id = NULL)
     {
 
     }
 
-    public function delete(int $id)
+    public function delete($id = NULL)
     {
 
     }

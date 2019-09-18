@@ -6,7 +6,7 @@ use Config\Services;
 use App\Models\UserModel;
 use App\Libraries\Hash;
 
-class CustomRules
+class CustomValidationRules
 {
     private $request;
 

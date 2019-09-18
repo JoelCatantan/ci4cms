@@ -72,15 +72,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index', ['filter' => 'acl']);
+$routes->get('/', 'DashboardController::index', ['filter' => 'acl']);
 
-$routes->get('logout', 'Login::logout');
+$routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
 $routes->group('login', function ($routes) {
-	$routes->get('/', 'Login::index', ['as' => 'login']);
-	$routes->post('/', 'Login::varifyCredentials');
+	$routes->get('/', 'LoginController::index', ['as' => 'login']);
+	$routes->post('/', 'LoginController::verifyCredentials');
 });
 
-$routes->resource('users', ['filter' => 'acl']);
+$routes->resource('users', ['controller' => 'App\Controllers\UserController', 'filter' => 'acl']);
 
 // Equivalent to the following:
 // $routes->get('photos',                 'Photos::index');

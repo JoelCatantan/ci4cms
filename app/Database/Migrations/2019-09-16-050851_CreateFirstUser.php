@@ -11,6 +11,7 @@ class CreateFirstUser extends Migration
 	public function up()
 	{
 		$user_model = new UserModel;
+
 		$user_model->save([
 			'email_address' => 'admin@email.com',
 			'first_name' => 'admin',
@@ -18,7 +19,10 @@ class CreateFirstUser extends Migration
 			'username' => 'admin',
 		]);
 
-		$user = $user_model->select('id')->first();
+		$user = $user_model
+			->select('id')
+			->first();
+
 		$user->setDefaultPassword();
 
 		$user_model->protect(FALSE);
@@ -28,6 +32,8 @@ class CreateFirstUser extends Migration
 
 	public function down()
 	{
-		(new User)->where('username', 'admin')->delete();
+		(new UserModel)
+			->where('username', 'admin')
+			->delete();
 	}
 }
