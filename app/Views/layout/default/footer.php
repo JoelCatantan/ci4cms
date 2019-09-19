@@ -8,4 +8,5 @@
     <?= script_tag('node_modules/bootstrap/dist/js/bootstrap.min.js') ?>
     <?= script_tag('assets/jo/jo-menus/jo-menus.js') ?>
     <?= script_tag('assets/js/admin.js') ?>
+    <?= $this->renderSection('js_script') ?>
 </html>
