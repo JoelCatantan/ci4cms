@@ -26,6 +26,8 @@ class ResourceBaseController extends ResourceController
 		$this->request = Services::request();
         $this->validation = Services::validation();
 		$this->view = Services::renderer();
+
 		$this->view->setVar('default_template', Config::DEFAULT_TEMPLATE);
+		$this->view->setVar('validation', $this->validation);
     }
 }

@@ -1,5 +1,7 @@
 <?php namespace Config;
 
+use Config\Services;
+
 /**
  * --------------------------------------------------------------------
  * URI Routing
@@ -72,7 +74,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'DashboardController::index', ['filter' => 'acl']);
+$routes->group('/', ['filter' => 'acl'], function ($routes) {
+	$routes->get('', 'DashboardController::index');
+	$routes->get('/users', 'UserController::landingPage');
+});
+
+$routes->group('api', ['filter' => 'acl'], function ($routes) {
+	$routes->resource('users', ['controller' => 'App\Controllers\UserController']);
+});
 
 $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
 $routes->group('login', function ($routes) {
@@ -80,9 +89,7 @@ $routes->group('login', function ($routes) {
 	$routes->post('/', 'LoginController::verifyCredentials');
 });
 
-$routes->resource('users', ['controller' => 'App\Controllers\UserController', 'filter' => 'acl']);
-
-// Equivalent to the following:
+// NOTE: `resource` equivalent to the following:
 // $routes->get('photos',                 'Photos::index');
 // $routes->get('photos/new',             'Photos::new');
 // $routes->get('photos/(:segment)/edit', 'Photos::edit/$1');

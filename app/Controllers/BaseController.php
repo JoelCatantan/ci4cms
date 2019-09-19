@@ -34,7 +34,6 @@ class BaseController extends Controller
 
 	protected $request;
 	protected $session;
-	protected $view;
 
 	/**
 	 * Constructor.
@@ -52,7 +51,8 @@ class BaseController extends Controller
 
 		$this->request = Services::request();
 		$this->session = Services::session();
-		$this->view = Services::renderer();
-		$this->view->setVar('default_template', Config::DEFAULT_TEMPLATE);
+
+		$view = Services::renderer();
+		$view->setVar('default_template', Config::DEFAULT_TEMPLATE);
 	}
 }

@@ -16,9 +16,7 @@ class UserController extends ResourceBaseController
 
     public function index()
     {
-        return view('users/list_of_users', [
-            'users' => $this->user_model->findAll(),
-        ]);
+
     }
 
     public function new()
@@ -38,7 +36,15 @@ class UserController extends ResourceBaseController
 
     public function create()
     {
-        $this->validation->setRules($this->validationRules());
+        if (!$this->validate($this->validationRules()))
+        {
+            return view('users/form', ['is_add' => TRUE]);
+        }
+        else
+        {
+            $this->session->setFlashdata('form_message', 'New User has been created');
+            $this->index();
+        }
     }
 
     public function update($id = NULL)
@@ -60,7 +66,7 @@ class UserController extends ResourceBaseController
             ],
             'email_address' => [
                 'label' => 'Email Address',
-                'rules' => 'required',
+                'rules' => 'required|is_unique[users.email_address' . ($user_id ? ".id.$user_id" : '') . ']',
             ],
             'first_name' => [
                 'label' => 'First Name',
@@ -73,5 +79,10 @@ class UserController extends ResourceBaseController
         ];
 
         return $rules;
+    }
+
+    public function landingPage()
+    {
+        return view('users/list_of_users');
     }
 }
