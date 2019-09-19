@@ -23,7 +23,7 @@ class UserController extends ResourceBaseController
 
     public function new()
     {
-
+        return view('users/form', ['is_add' => TRUE]);
     }
 
     public function edit($id = NULL)
@@ -38,7 +38,7 @@ class UserController extends ResourceBaseController
 
     public function create()
     {
-
+        $this->validation->setRules($this->validationRules());
     }
 
     public function update($id = NULL)
@@ -49,5 +49,29 @@ class UserController extends ResourceBaseController
     public function delete($id = NULL)
     {
 
+    }
+
+    private function validationRules(?int $user_id = null): array
+    {
+        $rules = [
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|is_unique[users.username' . ($user_id ? ".id.$user_id" : '') . ']',
+            ],
+            'email_address' => [
+                'label' => 'Email Address',
+                'rules' => 'required',
+            ],
+            'first_name' => [
+                'label' => 'First Name',
+                'rules' => 'required',
+            ],
+            'last_name' => [
+                'label' => 'Last Name',
+                'rules' => 'required',
+            ],
+        ];
+
+        return $rules;
     }
 }
