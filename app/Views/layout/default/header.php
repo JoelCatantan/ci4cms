@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Joel Catantan">
     <title>PIZZAo6 System</title>
-    <?= link_tag('assets/vendor/bootstrap/css/bootstrap.min.css') ?>
-    <?= link_tag('assets/vendor/Font-Awesome-4.7.0/css/font-awesome.min.css') ?>
+    <?= link_tag('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>
+    <?= link_tag('node_modules/font-awesome/css/font-awesome.min.css') ?>
     <?= link_tag('assets/jo/jo-menus/jo-menus.css') ?>
     <?= link_tag('assets/css/admin.css') ?>
 </head>

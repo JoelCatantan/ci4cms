@@ -459,5 +459,9 @@ main {
 }
 
 main .body {
-    padding: 55px 30px;
+    padding: 65px 50px;
+}
+
+.body > .content {
+    margin-top: 15px;
 }
