@@ -11,6 +11,7 @@
     <?= link_tag('node_modules/bootstrap/dist/css/bootstrap.min.css') ?>
     <?= link_tag('node_modules/font-awesome/css/font-awesome.min.css') ?>
     <?= link_tag('assets/jo/jo-menus/jo-menus.css') ?>
+    <?= link_tag('assets/css/datatables.css') ?>
     <?= link_tag('assets/css/admin.css') ?>
 </head>
 

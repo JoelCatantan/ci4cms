@@ -3,28 +3,27 @@
 namespace App\Entities;
 
 use App\Libraries\Hash;
-use CodeIgniter\Entity;
+use App\Entities\BaseEntity;
 
-class User extends Entity
+class User extends BaseEntity
 {
-    protected $casts = [
-        'id' => 'int'
-    ];
+	protected $casts = ['id' => 'int'];
+	protected $dates = [];
 
-    const DEFAULT_PASSWORD = '123456';
+	const DEFAULT_PASSWORD = '123456';
 
-    public function setPassword(string $password): self
-    {
-        $password_hashed = Hash::generate($password);
+	public function setPassword(string $password): self
+	{
+		$password_hashed = Hash::generate($password);
 
-        $this->attributes['password'] = $password_hashed['password'];
-        $this->attributes['salt'] = $password_hashed['salt'];
+		$this->attributes['password'] = $password_hashed['password'];
+		$this->attributes['salt']     = $password_hashed['salt'];
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function setDefaultPassword(): void
-    {
-        $this->setPassword(self::DEFAULT_PASSWORD);
-    }
+	public function setDefaultPassword(): void
+	{
+		$this->setPassword(self::DEFAULT_PASSWORD);
+	}
 }

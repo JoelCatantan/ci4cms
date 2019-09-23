@@ -99,7 +99,7 @@ class App extends BaseConfig
 	| dates with the date helper, and can be retrieved through app_timezone()
 	|
 	*/
-	public $appTimezone = 'America/Chicago';
+	public $appTimezone = 'UTC';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -263,5 +263,11 @@ class App extends BaseConfig
 	|   - http://www.w3.org/TR/CSP/
 	*/
 	public $CSPEnabled = false;
+
+	const HUMAN_READABLE_TIME     = 'g:ia';
+	const HUMAN_READABLE_DATETIME = 'M-d-y g:ia';
+	const HUMAN_READABLE_DATE     = 'M-d-y';
+
+	const RECORD_LIMIT = 15;
 
 }

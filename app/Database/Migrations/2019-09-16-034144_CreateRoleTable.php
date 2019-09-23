@@ -12,8 +12,8 @@ class CreateRoleTableAndAdminRole extends Migration
 					->addField('created_at DATETIME NOT NULL')
 					->addField('updated_at DATETIME NOT NULL')
 					->addField('deleted_at DATETIME')
-					->addKey('id', FALSE, TRUE)
-					->addKey('display_name', FALSE, TRUE)
+					->addKey('id', false, true)
+					->addKey('display_name', false, true)
 					->createTable('roles');
 	}
 

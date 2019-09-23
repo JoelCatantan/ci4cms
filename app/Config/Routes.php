@@ -76,14 +76,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->group('/', ['filter' => 'acl'], function ($routes) {
 	$routes->get('', 'DashboardController::index');
-	$routes->get('/users', 'UserController::landingPage');
-});
-
-$routes->group('api', ['filter' => 'acl'], function ($routes) {
 	$routes->resource('users', ['controller' => 'App\Controllers\UserController']);
 });
 
 $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
+
 $routes->group('login', function ($routes) {
 	$routes->get('/', 'LoginController::index', ['as' => 'login']);
 	$routes->post('/', 'LoginController::verifyCredentials');

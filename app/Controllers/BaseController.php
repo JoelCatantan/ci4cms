@@ -14,7 +14,6 @@ namespace App\Controllers;
  * @package CodeIgniter
  */
 
-use App\Config;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -30,9 +29,12 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['html', 'form'];
+	protected $helpers = [
+		'html',
+		'form',
+		'common',
+	];
 
-	protected $request;
 	protected $session;
 
 	/**
@@ -49,10 +51,6 @@ class BaseController extends Controller
 		// E.g.:
 		// $this->session = \Config\Services::session();
 
-		$this->request = Services::request();
 		$this->session = Services::session();
-
-		$view = Services::renderer();
-		$view->setVar('default_template', Config::DEFAULT_TEMPLATE);
 	}
 }

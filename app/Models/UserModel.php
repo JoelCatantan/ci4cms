@@ -7,16 +7,17 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    protected $returnType = 'App\Entities\User';
-    protected $allowedFields = [
-        'email_address',
-        'first_name',
-        'last_name',
-        'username',
-    ];
+	protected $table         = 'users';
+	protected $primaryKey    = 'id';
+	protected $returnType    = 'App\Entities\User';
+	protected $allowedFields = [
+		'email_address',
+		'first_name',
+		'last_name',
+		'role_id',
+		'username',
+	];
 
-    protected $useTimestamps = TRUE;
-    protected $useSoftDeletes = TRUE;
+	protected $useTimestamps  = true;
+	protected $useSoftDeletes = true;
 }

@@ -158,6 +158,7 @@ main .header {
     box-shadow: 0 0 5px -2px #5eb358;
     border-left: solid 5px #5eb358;
     background-color: #f9fbf8;
+    z-index: 1;
 }
 
 .header *, .header a {
@@ -464,4 +465,17 @@ main .body {
 
 .body > .content {
     margin-top: 15px;
+}
+
+@media only screen and (min-width: 800px) {
+    main .body,
+    main .body .btn,
+    main .body .form-control,
+    main .body .form-group {
+        font-size: 13px;
+    }
+}
+
+.pagination {
+    display: inline-flex;
 }

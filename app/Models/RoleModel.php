@@ -7,11 +7,11 @@ use CodeIgniter\Model;
 
 class RoleModel extends Model
 {
-    protected $table = 'roles';
-    protected $allowedFields = ['display_name'];
-    protected $returnType = 'App\Entities\RoleEntity';
-    protected $useTimestamps = true;
+	protected $table         = 'roles';
+	protected $primaryKey    = 'id';
+	protected $returnType    = 'App\Entities\Role';
+	protected $allowedFields = ['display_name'];
 
-    const ADMIN = 10000;
-    const DEVELOPER = 10001;
+	protected $useTimestamps  = true;
+	protected $useSoftDeletes = true;
 }
