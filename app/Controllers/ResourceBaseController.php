@@ -26,10 +26,10 @@ class ResourceBaseController extends ResourceController
 	{
 		parent::initController($request, $response, $logger);
 
-		// $this->request = $request;
-		// $this->response = $response;
+		$this->session = Services::session();
 
-		$this->session    = Services::session();
-		$this->validation = Services::validation();
+		$view = Services::renderer();
+		$view->setVar('validation', Services::validation());
+		$view->setVar('form_message', $this->session->getFlashdata('form_message'));
 	}
 }

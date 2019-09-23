@@ -18,7 +18,7 @@
 		<?php foreach ($pager->links() as $link) : ?>
 			<li class="page-item<?= $link['active'] ? ' active"' : '' ?>">
 				<?php if ($link['active']) : ?>
-					<label class="page-link"><?= $link['title'] ?></label>
+					<label class="page-link" style="z-index:3"><?= $link['title'] ?></label>
 				<?php else : ?>
 					<a class="page-link" href="<?= $link['uri'] ?>">
 						<?= $link['title'] ?>

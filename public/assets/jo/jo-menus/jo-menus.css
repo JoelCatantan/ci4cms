@@ -17,21 +17,21 @@
 .jo-menu > ul > li > ul *,
 .jo-menu > ul > li > ul a {
     color: #50646f;
-    font-size: 12px;
+    /* font-size: 13px; */
 }
 
 .jo-menu a {
     display: block;
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .jo-menu > ul > li > ul > li:first-child {
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .jo-menu > ul > li > ul > li:last-child {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .jo-menu > ul > li > ul > li > a,

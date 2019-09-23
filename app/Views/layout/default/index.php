@@ -3,7 +3,7 @@
 <div class="page-title">
     <?= $this->renderSection('page_title') ?>
 </div>
-<div class="content mt-4">
+<div class="content mt-5">
     <?= $this->renderSection('content') ?>
 </div>
 

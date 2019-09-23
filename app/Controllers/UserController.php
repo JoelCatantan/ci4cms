@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-use Config\App;
-use App\Models\UserModel;
 use App\Controllers\ResourceBaseController;
+use App\Models\RoleModel;
+use App\Models\UserModel;
+use Config\App;
 
 class UserController extends ResourceBaseController
 {
@@ -13,11 +14,13 @@ class UserController extends ResourceBaseController
 	public function __construct()
 	{
 		$this->user_model = new UserModel;
+		$this->role_model = new RoleModel();
 	}
 
 	public function index()
 	{
 		$search = $this->request->getGet('search');
+		$curr_page = $this->request->getGet('page') ?? 1;
 
 		$select = [
 			'users.id',
@@ -34,7 +37,7 @@ class UserController extends ResourceBaseController
 			->join('roles', 'roles.id = users.role_id');
 
 		if ($search)
-			{
+		{
 			$record_list->orLike('first_name', $search)
 				->orLike('last_name', $search)
 				->orLike('username', $search)
@@ -45,22 +48,30 @@ class UserController extends ResourceBaseController
 
 		return view('users/list_of_users', [
 			'record_list' => $record_list->paginate(App::RECORD_LIMIT),
-			'search'      => $search,
-			'pager'       => $this->user_model->pager,
+			'search' => $search,
+			'pager' => $this->user_model->pager,
+			'record_offset' => ($curr_page - 1) * App::RECORD_LIMIT,
 		]);
 	}
 
 	public function new()
 	{
-		return view('users/form', ['is_add' => true]);
+		return view('users/form', [
+			'is_add' => true,
+			'options' => [
+				'roles' => $this->role_model->getDropdownOptions(),
+			],
+		]);
 	}
 
 	public function edit($id = null)
 	{
+		die('Edit');
 	}
 
 	public function show($id = null)
 	{
+		die('Show');
 	}
 
 	public function create()
@@ -71,17 +82,23 @@ class UserController extends ResourceBaseController
 		}
 		else
 		{
-			$this->session->setFlashdata('form_message', 'New User has been created');
-			$this->index();
+			$this->session->setFlashdata('form_message', [
+				'message' => 'New User has been created',
+				'type' => 'success',
+			]);
+
+			return redirect()->to('/users');
 		}
 	}
 
 	public function update($id = null)
 	{
+		die('Update');
 	}
 
 	public function delete($id = null)
 	{
+		die('Delete');
 	}
 
 	private function validationRules(?int $user_id = null): array
@@ -93,7 +110,8 @@ class UserController extends ResourceBaseController
 			],
 			'email_address' => [
 				'label' => 'Email Address',
-				'rules' => 'required|is_unique[users.email_address' . ($user_id ? ".id.$user_id" : '') . ']',
+				'rules' => 'required|valid_email|' .
+					'is_unique[users.email_address' . ($user_id ? ".id.$user_id" : '') . ']',
 			],
 			'first_name'    => [
 				'label' => 'First Name',

@@ -1,5 +1,10 @@
-* {
+*, a {
     font-family: arial;
+    color: #555;
+}
+
+a > i {
+    color: inherit;
 }
 
 .cool-scroll::-webkit-scrollbar {
@@ -474,8 +479,86 @@ main .body {
     main .body .form-group {
         font-size: 13px;
     }
+
+    .pagination * {
+        font-size: 14px;
+    }
 }
 
 .pagination {
     display: inline-flex;
+}
+
+.page-link {
+    color: #555;
+    border-color: #ccc;
+}
+
+.page-item.active .page-link {
+    font-weight: bold;
+    background-color: #9fa2a5;
+    border-color: #9fa2a5;
+}
+
+.page-link:hover {
+    border-color: #ccc;
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #008cff;
+    border-color: #008cff;
+}
+
+.btn-danger {
+    background-color: #f77581;
+    border-color: #f77581;
+}
+
+.btn-info {
+    background-color: #3cbbd0;
+    border-color: #3cbbd0;
+}
+
+.btn-success {
+    background-color: #49cc67;
+    border-color: #49cc67;
+}
+
+.btn-warning {
+    background-color: #fbd666;
+    border-color: #fbd666;
+}
+
+.btn-secondary {
+    background-color: #9fa2a5;
+    border-color: #9fa2a5;
+}
+
+.input-group-text {
+    background-color: #fff;
+    border-right: none;
+    color: #ccc;
+    padding-right: 5px;
+}
+
+i.input-group-text {
+    padding: 9px 12px;
+}
+
+.input-group .form-control {
+    border-left: none;
+    padding-left: 5px;
+}
+
+form.delete-action {
+    display: inline-block;
+}
+
+.btn *, .toast-message {
+    color: #fff !important;
+}
+
+table .action a {
+    margin-right: 5px;
 }

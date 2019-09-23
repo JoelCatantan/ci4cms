@@ -74,9 +74,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->group('/', ['filter' => 'acl'], function ($routes) {
+$routes->group('/', ['filter' => 'logged_in'], function ($routes) {
+	// dashboard module
 	$routes->get('', 'DashboardController::index');
-	$routes->resource('users', ['controller' => 'App\Controllers\UserController']);
+
+	// users module
+	$routes->group('users', function ($routes) {
+		$routes->get('', 'UserController::index');
+		$routes->get('new', 'UserController::new');
+		$routes->get('(:segment)', 'UserController::show/$1');
+		$routes->get('(:segment)/edit', 'UserController::edit/$1');
+		$routes->post('', 'UserController::create');
+		$routes->post('(:segment)', 'UserController::update/$1');
+		$routes->post('(:segment)/delete', 'UserController::delete/$1');
+	});
 });
 
 $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
@@ -85,16 +96,6 @@ $routes->group('login', function ($routes) {
 	$routes->get('/', 'LoginController::index', ['as' => 'login']);
 	$routes->post('/', 'LoginController::verifyCredentials');
 });
-
-// NOTE: `resource` equivalent to the following:
-// $routes->get('photos',                 'Photos::index');
-// $routes->get('photos/new',             'Photos::new');
-// $routes->get('photos/(:segment)/edit', 'Photos::edit/$1');
-// $routes->get('photos/(:segment)',      'Photos::show/$1');
-// $routes->post('photos',                'Photos::create');
-// $routes->patch('photos/(:segment)',    'Photos::update/$1');
-// $routes->put('photos/(:segment)',      'Photos::update/$1');
-// $routes->delete('photos/(:segment)',   'Photos::delete/$1');
 
 /**
  * --------------------------------------------------------------------
