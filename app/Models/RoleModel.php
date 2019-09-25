@@ -3,8 +3,12 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-class RoleModel extends BaseModel
+use CodeIgniter\Model;
+
+class RoleModel extends Model
 {
+	use Dropdownoptions;
+
 	protected $table         = 'roles';
 	protected $primaryKey    = 'id';
 	protected $returnType    = 'App\Entities\Role';
