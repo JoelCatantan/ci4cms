@@ -30,7 +30,7 @@ class UserController extends ResourceBaseController
 			'username',
 			'users.created_at',
 			'users.updated_at',
-			'roles.display_name role',
+			'roles.display_name user_role',
 		];
 
 		$record_list = $this->user_model
@@ -172,7 +172,7 @@ class UserController extends ResourceBaseController
 				'rules' => 'required|is_unique[users.username' . ($user_id ? ",id,$user_id" : '') . ']',
 			],
 			'email_address' => [
-				'label' => lang('Label.email_address'),
+				'label' => lang('Label.emailAddress'),
 				'rules' => 'required|valid_email|' .
 					'is_unique[users.email_address' . ($user_id ? ",id,$user_id" : '') . ']',
 			],

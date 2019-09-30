@@ -38,8 +38,8 @@
 		<tr>
 			<th><?= lang('Label.count') ?></th>
 			<th><?= lang('Label.username') ?></th>
-			<th><?= lang('Label.first_name') ?></th>
-			<th><?= lang('Label.last_name') ?></th>
+			<th><?= lang('Label.firstName') ?></th>
+			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
 			<th><?= lang('Label.created_at') ?></th>
 			<th><?= lang('Label.modified_at') ?></th>
@@ -54,7 +54,7 @@
 					<td><?= $record->username ?></td>
 					<td><?= $record->first_name ?></td>
 					<td><?= $record->last_name ?></td>
-					<td><?= $record->role ?></td>
+					<td><?= $record->user_role ?></td>
 					<td><?= $record->created_at ?></td>
 					<td><?= $record->updated_at ?></td>
 					<td class="action">
@@ -85,8 +85,8 @@
 		<tr>
 			<th><?= lang('Label.count') ?></th>
 			<th><?= lang('Label.username') ?></th>
-			<th><?= lang('Label.first_name') ?></th>
-			<th><?= lang('Label.last_name') ?></th>
+			<th><?= lang('Label.firstName') ?></th>
+			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
 			<th><?= lang('Label.created_at') ?></th>
 			<th><?= lang('Label.modified_at') ?></th>

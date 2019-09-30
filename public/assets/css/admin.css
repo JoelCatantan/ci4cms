@@ -562,3 +562,11 @@ form.delete-action {
 table .action a {
     margin-right: 5px;
 }
+
+.form-control.form-value {
+    background: none;
+    border-radius: 0;
+    border: none;
+    border-bottom: solid 1px #888;
+    font-size: 14px !important;
+}

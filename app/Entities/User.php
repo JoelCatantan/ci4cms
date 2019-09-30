@@ -4,6 +4,7 @@ namespace App\Entities;
 
 use App\Libraries\Hash;
 use App\Entities\BaseEntity;
+use App\Models\RoleModel;
 
 class User extends BaseEntity
 {
@@ -34,5 +35,10 @@ class User extends BaseEntity
 	public function setDefaultPassword(): void
 	{
 		$this->setPassword(self::DEFAULT_PASSWORD);
+	}
+
+	public function getRole()
+	{
+		return (new RoleModel)->getOptionDetailByID($this->role_id);
 	}
 }

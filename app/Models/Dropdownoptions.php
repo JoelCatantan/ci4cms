@@ -20,4 +20,21 @@ trait Dropdownoptions
 
 		return $dropdown_options->union($options)->toArray();
 	}
+
+	function getOptionDetailByID(
+		$value,
+		string $field_label = 'display_name',
+		string $field_value = 'id'
+	): ?string {
+		if (!$value)
+		{
+			return null;
+		}
+
+		$data = parent::where($field_value, $value)
+			->select($field_label)
+			->first();
+
+		return $data->$field_label;
+	}
 }
