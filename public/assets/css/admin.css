@@ -13,12 +13,12 @@ a > i {
 
 .cool-scroll::-webkit-scrollbar-track {
     background-color: #cacaca;
-    border-left: solid 1px #f9fbf8;
+    border-left: solid 1px #f7f7f7;
 }
 
 .cool-scroll::-webkit-scrollbar-thumb {
     background-color: #5eb358;
-    border-left: solid 1px #f9fbf8;
+    border-left: solid 1px #f7f7f7;
 }
 
 body {
@@ -42,7 +42,7 @@ body > .container-fluid {
 
 .left-nav *,
 .left-nav a {
-    color: #f9fbf8;
+    color: #f7f7f7;
 }
 
 .profile-part {
@@ -100,7 +100,7 @@ body > .container-fluid {
 
 ul.profile-info--nav {
     visibility: hidden;
-    background-color: #f9fbf8;
+    background-color: #f7f7f7;
     padding: 13px 3px !important;
     position: absolute;
     opacity: 0;
@@ -160,9 +160,9 @@ main .header {
     top: 0;
     left: 220px;
     right: 0;
-    box-shadow: 0 0 5px -2px #5eb358;
+    box-shadow: 0 0 5px -2px #5d5d5d;
     border-left: solid 5px #5eb358;
-    background-color: #f9fbf8;
+    background-color: #f7f7f7;
     z-index: 1;
 }
 
@@ -172,7 +172,7 @@ main .header {
 }
 
 .left-menu-toggle {
-    background-color: #f9fbf8;
+    background-color: #f7f7f7;
     border: none;
     padding: 8px 15px;
     cursor: pointer;
@@ -196,7 +196,7 @@ main .header {
 }
 
 main {
-    background-color: #f9fbf8;
+    background-color: #f7f7f7;
     margin-left: 220px;
     border-left: solid 5px #5eb358;
 }
@@ -285,7 +285,7 @@ main {
 
 .mini-left-menu .profile-info {
     position: absolute;
-    background-color: #f9fbf8;
+    background-color: #f7f7f7;
     width: 177px;
     border: solid 1px #5eb358;
     padding: 15px 10px !important;
@@ -363,7 +363,7 @@ main {
 }
 
 .right-nav a:not(.card) {
-    color: #f9fbf8;
+    color: #f7f7f7;
     background-color: #5eb358;
     padding: 10px 0px 10px 5px;
     margin-bottom: 5px;

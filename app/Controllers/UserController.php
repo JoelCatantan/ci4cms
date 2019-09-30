@@ -78,7 +78,7 @@ class UserController extends ResourceBaseController
 	{
 		if (! $this->validate($this->validationRules()))
 		{
-			return view('users/form', ['is_add' => true]);
+			return $this->new();
 		}
 		else
 		{
@@ -104,7 +104,7 @@ class UserController extends ResourceBaseController
 	private function validationRules(?int $user_id = null): array
 	{
 		$rules = [
-			'username'      => [
+			'username' => [
 				'label' => 'Username',
 				'rules' => 'required|is_unique[users.username' . ($user_id ? ".id.$user_id" : '') . ']',
 			],
@@ -113,12 +113,16 @@ class UserController extends ResourceBaseController
 				'rules' => 'required|valid_email|' .
 					'is_unique[users.email_address' . ($user_id ? ".id.$user_id" : '') . ']',
 			],
-			'first_name'    => [
+			'first_name' => [
 				'label' => 'First Name',
 				'rules' => 'required',
 			],
-			'last_name'     => [
+			'last_name' => [
 				'label' => 'Last Name',
+				'rules' => 'required',
+			],
+			'role_id' => [
+				'label' => 'Role',
 				'rules' => 'required',
 			],
 		];
