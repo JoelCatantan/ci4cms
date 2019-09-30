@@ -67,7 +67,7 @@ class UserController extends ResourceBaseController
 	{
 		if (! $this->isRecordExist($id, $this->user_model))
 		{
-			return redirect()->to('/users');
+			return $this->redirectToList();
 		}
 
 		return view('users/form', [
@@ -81,7 +81,7 @@ class UserController extends ResourceBaseController
 	{
 		if (! $this->isRecordExist($id, $this->user_model))
 		{
-			return redirect()->to('/users');
+			return $this->redirectToList();
 		}
 
 		return view('users/detail', [
@@ -123,7 +123,7 @@ class UserController extends ResourceBaseController
 				'message' => lang('Crud.newRecordSave', [lang('Module.user')]),
 				'type' => 'success',
 			]);
-			return redirect()->to('/users');
+			return $this->redirectToList();
 		}
 		else
 		{
@@ -136,7 +136,7 @@ class UserController extends ResourceBaseController
 	{
 		if (! $this->isRecordExist($id, $this->user_model))
 		{
-			return redirect()->to('/users');
+			return $this->redirectToList();
 		}
 
 		if (! $this->validate($this->validationRules((int) $id)))
@@ -150,7 +150,7 @@ class UserController extends ResourceBaseController
 				'message' => lang('Crud.recordUpdated', [lang('Module.user')]),
 				'type' => 'success',
 			]);
-			return redirect()->to('/users');
+			return $this->redirectToList();
 		}
 		else
 		{
@@ -161,7 +161,30 @@ class UserController extends ResourceBaseController
 
 	public function delete($id = null)
 	{
-		die('Delete');
+		if (! $this->isRecordExist($id, $this->user_model))
+		{
+			return $this->redirectToList();
+		}
+
+		if (! $this->user_model->delete(['id' => $id]))
+		{
+			$this->session->setFlashdata('form_message', [
+				'message' => lang('Crud.savingFailed'),
+				'type' => 'error',
+			]);
+			return $this->redirectToList();
+		}
+
+		$this->session->setFlashdata('form_message', [
+			'message' => lang('Crud.hasBeenDeleted', [lang('Module.user')]),
+			'type' => 'success',
+		]);
+		return $this->redirectToList();
+	}
+
+	private function redirectToList()
+	{
+		return redirect()->to('/users');
 	}
 
 	private function validationRules(?int $user_id = null): array
