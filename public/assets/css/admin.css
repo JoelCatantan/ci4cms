@@ -1,4 +1,5 @@
-*, a {
+*,
+a {
     font-family: arial;
     color: #555;
 }
@@ -166,7 +167,8 @@ main .header {
     z-index: 1;
 }
 
-.header *, .header a {
+.header *,
+.header a {
     color: #555;
     font-size: 12px;
 }
@@ -186,7 +188,7 @@ main .header {
 .left-menu-toggle:hover,
 .top-nav-part a:hover,
 .right-nav--content .card:hover {
-    background-color: #efefef;
+    background-color: #ddd;
 }
 
 .left-menu-toggle:active,
@@ -319,7 +321,8 @@ main {
     top: 65px;
 }
 
-.mini-left-menu .profile-info a, .mini-left-menu .profile-info * {
+.mini-left-menu .profile-info a,
+.mini-left-menu .profile-info * {
     color: #50646f;
 }
 
@@ -555,7 +558,8 @@ form.delete-action {
     display: inline-block;
 }
 
-.btn *, .toast-message {
+.btn *,
+.toast-message {
     color: #fff !important;
 }
 
@@ -569,4 +573,9 @@ table .action a {
     border: none;
     border-bottom: solid 1px #888;
     font-size: 14px !important;
+}
+
+.btn,
+.action > * {
+    white-space: nowrap;
 }

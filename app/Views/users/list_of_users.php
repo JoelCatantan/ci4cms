@@ -117,6 +117,8 @@
 			swal({
 				title: '<?= lang('Label.areYouSure') ?>',
 				text: '<?= lang('Crud.onceDeleted') ?>',
+				confirmButtonColor: '#f77581',
+  				cancelButtonColor: '#9fa2a5',
 				icon: 'warning',
 				dangerMode: true,
 				buttons: ['<?= lang('Label.no')?>', '<?= lang('Label.yes')?>'],
