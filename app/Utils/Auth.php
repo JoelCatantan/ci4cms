@@ -12,13 +12,13 @@ class Auth
 	private $session;
 
 	private const USER_DATA_SESSION_KEY = '_user_data';
-	private const SESSION_AUTH_ID_KEY   = 'auth_id';
+	private const SESSION_AUTH_ID_KEY = 'auth_id';
 
 	public function __construct()
 	{
 		$this->user_model = new UserModel;
-		$this->session    = Services::session();
-		$this->request    = Services::request();
+		$this->session = Services::session();
+		$this->request = Services::request();
 	}
 
 	public function initSession(): void

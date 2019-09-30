@@ -82,9 +82,10 @@ $routes->group('/', ['filter' => 'logged_in'], function ($routes) {
 	$routes->group('users', function ($routes) {
 		$routes->get('', 'UserController::index');
 		$routes->get('new', 'UserController::new');
+		$routes->post('', 'UserController::create');
+
 		$routes->get('(:segment)', 'UserController::show/$1');
 		$routes->get('(:segment)/edit', 'UserController::edit/$1');
-		$routes->post('', 'UserController::create');
 		$routes->post('(:segment)', 'UserController::update/$1');
 		$routes->post('(:segment)/delete', 'UserController::delete/$1');
 	});

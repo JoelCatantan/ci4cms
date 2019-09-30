@@ -9,6 +9,15 @@ class User extends BaseEntity
 {
 	protected $casts = ['id' => 'int'];
 	protected $dates = [];
+	protected $attributes = [
+        'email_address' => null,
+        'first_name' => null,
+        'id' => null,
+        'last_name' => null,
+        'password_hash' => null,
+        'salt' => null,
+        'username' => null,
+    ];
 
 	const DEFAULT_PASSWORD = '123456';
 
@@ -17,7 +26,7 @@ class User extends BaseEntity
 		$password_hashed = Hash::generate($password);
 
 		$this->attributes['password'] = $password_hashed['password'];
-		$this->attributes['salt']     = $password_hashed['salt'];
+		$this->attributes['salt'] = $password_hashed['salt'];
 
 		return $this;
 	}

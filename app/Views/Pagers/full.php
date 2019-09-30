@@ -1,3 +1,5 @@
+<?php if (count($pager->links()) > 1) : ?>
+
 <?php $pager->setSurroundCount(2) ?>
 
 <nav aria-label="Page navigation">
@@ -5,12 +7,12 @@
 		<?php if ($pager->hasPrevious()) : ?>
 			<li class="page-item">
 				<a class="page-link" href="<?= $pager->getFirst() ?>" aria-label="First">
-					<span aria-hidden="true">First</span>
+					<span aria-hidden="true"><?= lang('Label.first') ?></span>
 				</a>
 			</li>
 			<li class="page-item">
 				<a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="Previous">
-					<span aria-hidden="true">Prev</span>
+					<span aria-hidden="true"><?= lang('Label.prev') ?></span>
 				</a>
 			</li>
 		<?php endif ?>
@@ -30,14 +32,21 @@
 		<?php if ($pager->hasNext()) : ?>
 			<li class="page-item">
 				<a class="page-link" href="<?= $pager->getNext() ?>" aria-label="Next">
-					<span aria-hidden="true">Next</span>
+					<span aria-hidden="true"><?= lang('Label.next') ?></span>
 				</a>
 			</li>
 			<li class="page-item">
 				<a class="page-link" href="<?= $pager->getLast() ?>" aria-label="Last">
-					<span aria-hidden="true">Last</span>
+					<span aria-hidden="true"><?= lang('Label.last') ?></span>
+
+
+
+
+
 				</a>
 			</li>
 		<?php endif ?>
 	</ul>
 </nav>
+
+<?php endif ?>

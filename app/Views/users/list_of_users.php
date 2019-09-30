@@ -4,7 +4,7 @@
 
 <?= $this->section('page_title') ?>
 
-<h3><i class="fa fa-users"></i> List of Users</h3>
+<h3><i class="fa fa-users"></i> <?= lang('Title.listOfRecords', [lang('Module.user')])?></h3>
 
 <?= $this->endSection() ?>
 
@@ -19,13 +19,16 @@
 			<div class="input-group-prepend">
 				<i class="input-group-text fa fa-search"></i>
 			</div>
-			<?= form_input('search', '', ['class' => 'form-control', 'placeholder' => 'Search']) ?>
+			<?= form_input('search', $search ?? '', [
+				'class' => 'form-control',
+				'placeholder' => lang('Label.search'),
+			]) ?>
 		</div>
 		<?= form_close() ?>
 	</div>
 	<div class="col-md-2 offset-md-7 text-right">
 		<a href="<?= base_url('users/new') ?>" class="btn btn-primary">
-			<i class="fa fa-plus"></i> Add User
+			<i class="fa fa-plus"></i> <?= lang('Label.add', [lang('Module.user')])?>
 		</a>
 	</div>
 </div>
@@ -33,14 +36,14 @@
 <table class="table table-hover mt-2">
 	<thead>
 		<tr>
-			<th>#</th>
-			<th>Username</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Role</th>
-			<th>Created At</th>
-			<th>Modified At</th>
-			<th>Action</th>
+			<th><?= lang('Label.count') ?></th>
+			<th><?= lang('Label.username') ?></th>
+			<th><?= lang('Label.first_name') ?></th>
+			<th><?= lang('Label.last_name') ?></th>
+			<th><?= lang('Label.role') ?></th>
+			<th><?= lang('Label.created_at') ?></th>
+			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -56,14 +59,17 @@
 					<td><?= $record->updated_at ?></td>
 					<td class="action">
 						<a href="<?= base_url('users/' . $record->id) ?>" class="text-primary">
-							<i class="fa fa-search"></i> View
+							<i class="fa fa-search"></i> <?= lang('Label.view') ?>
 						</a>
 						<a href="<?= base_url('users/' . $record->id . '/edit') ?>" class="text-success">
-							<i class="fa fa-pencil"></i> Edit
+							<i class="fa fa-pencil"></i> <?= lang('Label.edit') ?>
 						</a>
-						<?= form_open("users/{$record->id}/delete", ['method' => 'post', 'class' => 'delete-action']) ?>
+						<?= form_open("users/{$record->id}/delete", [
+							'method' => 'post',
+							'class' => 'delete-action',
+						]) ?>
 							<a href="#" class="text-danger">
-								<i class="fa fa-ban"></i> Delete
+								<i class="fa fa-ban"></i> <?= lang('Label.delete') ?>
 							</a>
 						<?= form_close() ?>
 					</td>
@@ -71,20 +77,20 @@
 			<?php endforeach ?>
 		<?php else : ?>
 			<tr>
-				<td class="text-center" colspan="6">- Zero result -</td>
+				<td class="text-center" colspan="8">- <?= lang('Crud.zeroResult') ?> -</td>
 			</tr>
 		<?php endif ?>
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>#</th>
-			<th>Username</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Role</th>
-			<th>Created At</th>
-			<th>Modified At</th>
-			<th>Action</th>
+			<th><?= lang('Label.count') ?></th>
+			<th><?= lang('Label.username') ?></th>
+			<th><?= lang('Label.first_name') ?></th>
+			<th><?= lang('Label.last_name') ?></th>
+			<th><?= lang('Label.role') ?></th>
+			<th><?= lang('Label.created_at') ?></th>
+			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</tfoot>
 </table>
@@ -109,14 +115,14 @@
 		$('.delete-action a').click(function(e) {
 			e.preventDefault()
 			swal({
-				title: "Are you sure?",
-				text: 'Once deleted, you will not be able to recover the record.',
+				title: '<?= lang('Label.areYouSure') ?>',
+				text: '<?= lang('Crud.onceDeleted') ?>',
 				icon: 'warning',
 				dangerMode: true,
-				buttons: ['No', 'Yes'],
+				buttons: ['<?= lang('Label.no')?>', '<?= lang('Label.yes')?>'],
 			})
-			.then((willDelete) => {
-				if (willDelete) {
+			.then(will_delete => {
+				if (will_delete) {
 					$(this).parent().submit()
 				}
 			});

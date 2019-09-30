@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\ResourceBaseController;
+use App\Entities\User;
 use App\Models\RoleModel;
 use App\Models\UserModel;
 use Config\App;
@@ -58,20 +59,35 @@ class UserController extends ResourceBaseController
 	{
 		return view('users/form', [
 			'is_add' => true,
-			'options' => [
-				'roles' => $this->role_model->getDropdownOptions(),
-			],
+			'opt_roles' => $this->role_model->getDropdownOptions(),
 		]);
 	}
 
 	public function edit($id = null)
 	{
-		die('Edit');
+		if (! $this->isRecordExist($id, $this->user_model))
+		{
+			return redirect()->to('/users');
+		}
+
+		return view('users/form', [
+			'edit_record_id' => $id,
+			'user' => $this->user_model->find($id),
+			'opt_roles' => $this->role_model->getDropdownOptions(),
+		]);
 	}
 
 	public function show($id = null)
 	{
-		die('Show');
+		if (! $this->isRecordExist($id, $this->user_model))
+		{
+			return redirect()->to('/users');
+		}
+
+		return view('users/detail', [
+			'user' => $this->user_model->find($id),
+			'opt_roles' => $this->role_model->getDropdownOptions(),
+		]);
 	}
 
 	public function create()
@@ -80,20 +96,67 @@ class UserController extends ResourceBaseController
 		{
 			return $this->new();
 		}
-		else
+
+		$user_model = $this->user_model;
+
+		$user_model->transStart();
+
+		// save record
+		$post = $this->request->getPost();
+		$user_model->save($post);
+
+		// set default password
+		$insert_id = $user_model->getInsertID();
+		$user = $user_model->find($insert_id);
+
+		$user->setDefaultPassword();
+
+		$user_model->protect(false);
+		$user_model->save($user);
+		$user_model->protect(true);
+
+		$user_model->transComplete();
+
+		if ($user_model->transStatus())
 		{
 			$this->session->setFlashdata('form_message', [
-				'message' => 'New User has been created',
+				'message' => lang('Crud.newRecordSave', [lang('Module.user')]),
 				'type' => 'success',
 			]);
-
 			return redirect()->to('/users');
+		}
+		else
+		{
+			$this->session->setFlashdata('form_message', ['message' => lang('Crud.savingFailed'), 'type' => 'error']);
+			return redirect()->to('/users/new');
 		}
 	}
 
 	public function update($id = null)
 	{
-		die('Update');
+		if (! $this->isRecordExist($id, $this->user_model))
+		{
+			return redirect()->to('/users');
+		}
+
+		if (! $this->validate($this->validationRules((int) $id)))
+		{
+			$this->edit($id);
+		}
+
+		if ($this->user_model->save($this->request->getPost() + ['id' => $id]))
+		{
+			$this->session->setFlashdata('form_message', [
+				'message' => lang('Crud.recordUpdated', [lang('Module.user')]),
+				'type' => 'success',
+			]);
+			return redirect()->to('/users');
+		}
+		else
+		{
+			$this->session->setFlashdata('form_message', ['message' => lang('Crud.savingFailed'), 'type' => 'error']);
+			return redirect()->to('/users/new');
+		}
 	}
 
 	public function delete($id = null)
@@ -105,24 +168,24 @@ class UserController extends ResourceBaseController
 	{
 		$rules = [
 			'username' => [
-				'label' => 'Username',
-				'rules' => 'required|is_unique[users.username' . ($user_id ? ".id.$user_id" : '') . ']',
+				'label' => lang('Label.username'),
+				'rules' => 'required|is_unique[users.username' . ($user_id ? ",id,$user_id" : '') . ']',
 			],
 			'email_address' => [
-				'label' => 'Email Address',
+				'label' => lang('Label.email_address'),
 				'rules' => 'required|valid_email|' .
-					'is_unique[users.email_address' . ($user_id ? ".id.$user_id" : '') . ']',
+					'is_unique[users.email_address' . ($user_id ? ",id,$user_id" : '') . ']',
 			],
 			'first_name' => [
-				'label' => 'First Name',
+				'label' => lang('Label.first_name'),
 				'rules' => 'required',
 			],
 			'last_name' => [
-				'label' => 'Last Name',
+				'label' => lang('Label.last_name'),
 				'rules' => 'required',
 			],
 			'role_id' => [
-				'label' => 'Role',
+				'label' => lang('Label.role'),
 				'rules' => 'required',
 			],
 		];

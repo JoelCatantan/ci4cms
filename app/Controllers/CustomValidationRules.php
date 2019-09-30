@@ -25,7 +25,7 @@ class CustomValidationRules
         $is_exists = $count > 0;
 
         if (!$is_exists) {
-            $error = lang('Validation.invalid_username');
+            $error = lang('Validation.invalidUsername');
         }
 
         return $is_exists;
@@ -47,7 +47,7 @@ class CustomValidationRules
                 $valid = Hash::verify($password, $user->password, $user->salt);
 
                 if (!$valid) {
-                    $error = lang('Validation.invalid_password');
+                    $error = lang('Validation.invalidPassword');
                 }
             }
         }
