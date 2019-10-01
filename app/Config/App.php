@@ -267,9 +267,8 @@ class App extends BaseConfig
 	public $CSPEnabled = false;
 
 	const HUMAN_READABLE_TIME     = 'g:ia';
-	const HUMAN_READABLE_DATETIME = 'M-d-y g:ia';
-	const HUMAN_READABLE_DATE     = 'M-d-y';
+	const HUMAN_READABLE_DATETIME = 'M d \'y  g:ia';
+	const HUMAN_READABLE_DATE     = 'M d \'y';
 
 	const RECORD_LIMIT = 15;
-
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Tightenco\Collect\Support\Collection;
 
-trait Dropdownoptions
+trait TraitsDropdownoptions
 {
 	function getDropdownOptions(
 		bool $first_index_empty = true,

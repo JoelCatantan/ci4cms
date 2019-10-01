@@ -18,11 +18,7 @@ class CustomValidationRules
     public function is_username_valid(string $username, string &$error = null): bool
     {
         $userModel = new UserModel();
-
-        $count = $userModel->where('username', $username)
-            ->countAllResults();
-
-        $is_exists = $count > 0;
+        $is_exists = $userModel->where('username', $username)->countAllResults() > 0;
 
         if (!$is_exists) {
             $error = lang('Validation.invalidUsername');
@@ -38,15 +34,18 @@ class CustomValidationRules
         $username = $this->request->getPost('username');
         $valid = true;
 
-        if ($username) {
+        if ($username)
+        {
             $user = $userModel->select(['password', 'salt'])
                 ->where('username', $username)
                 ->first();
 
-            if ($user) {
+            if ($user)
+            {
                 $valid = Hash::verify($password, $user->password, $user->salt);
 
-                if (!$valid) {
+                if (!$valid)
+                {
                     $error = lang('Validation.invalidPassword');
                 }
             }

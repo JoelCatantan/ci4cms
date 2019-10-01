@@ -24,6 +24,7 @@
     display: block;
     padding: 5px 0;
     font-size: 14px;
+    text-decoration: none;
 }
 
 .jo-menu > ul > li > ul > li:first-child {

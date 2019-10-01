@@ -2,4 +2,6 @@
 
 return [
     'user' => 'User',
+    'role' => 'Role',
+    'dashboard' => 'Dashboard',
 ];

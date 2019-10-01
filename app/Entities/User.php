@@ -8,17 +8,11 @@ use App\Models\RoleModel;
 
 class User extends BaseEntity
 {
+	use TraitsTimetimes;
+	use TraitsDeletedAt;
+
 	protected $casts = ['id' => 'int'];
 	protected $dates = [];
-	protected $attributes = [
-        'email_address' => null,
-        'first_name' => null,
-        'id' => null,
-        'last_name' => null,
-        'password_hash' => null,
-        'salt' => null,
-        'username' => null,
-    ];
 
 	const DEFAULT_PASSWORD = '123456';
 

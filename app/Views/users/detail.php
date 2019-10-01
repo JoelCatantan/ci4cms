@@ -52,7 +52,7 @@
 
     <div class="form-group row">
         <label class="col-md-3 col-form-label text-right">
-            <?= lang('Label.first_name') ?>
+            <?= lang('Label.firstName') ?>
         </label>
         <div class="col-md-6">
             <div class="form-control form-value">
@@ -64,7 +64,7 @@
 
     <div class="form-group row">
         <label class="col-md-3 col-form-label text-right">
-            <?= lang('Label.last_name') ?>
+            <?= lang('Label.lastName') ?>
         </label>
         <div class="col-md-6">
             <div class="form-control form-value">

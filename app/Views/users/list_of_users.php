@@ -26,11 +26,6 @@
 		</div>
 		<?= form_close() ?>
 	</div>
-	<div class="col-md-2 offset-md-7 text-right">
-		<a href="<?= base_url('users/new') ?>" class="btn btn-primary">
-			<i class="fa fa-plus"></i> <?= lang('Label.add', [lang('Module.user')])?>
-		</a>
-	</div>
 </div>
 
 <table class="table table-hover mt-2">
@@ -41,8 +36,8 @@
 			<th><?= lang('Label.firstName') ?></th>
 			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
-			<th><?= lang('Label.created_at') ?></th>
-			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.createdAt') ?></th>
+			<th><?= lang('Label.modifiedAt') ?></th>
 			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</thead>
@@ -88,8 +83,8 @@
 			<th><?= lang('Label.firstName') ?></th>
 			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
-			<th><?= lang('Label.created_at') ?></th>
-			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.createdAt') ?></th>
+			<th><?= lang('Label.modifiedAt') ?></th>
 			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</tfoot>

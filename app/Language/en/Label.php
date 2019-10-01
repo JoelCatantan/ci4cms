@@ -3,16 +3,20 @@
 return [
     'action' => 'Action',
     'count' => '#',
-    'created_at' => 'Created At',
+    'createdAt' => 'Created At',
+    'description' => 'Description',
+    'displayName' => 'Display Name',
     'emailAddress' => 'Email Address',
     'firstName' => 'First Name',
     'lastName' => 'Last Name',
-    'modified_at' => 'Modified At',
+    'modifiedAt' => 'Modified At',
     'password' => 'Password',
     'role' => 'Role',
     'username' => 'Username',
 
     'search' => 'Search',
+
+    'module' => '{0}s',
 
     'add' => 'Add {0}',
     'view' => 'View',
@@ -20,6 +24,11 @@ return [
     'delete' => 'Delete',
     'submit' => 'Submit',
     'goToList' => 'Go to list',
+
+    'listOfRecords' => 'List of {0}s',
+    'addNew' => 'Add New',
+
+    'maintenance' => 'Maintenance',
 
     // pagination
     'next' => 'Next',
