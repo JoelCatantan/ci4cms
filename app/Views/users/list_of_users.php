@@ -4,7 +4,7 @@
 
 <?= $this->section('page_title') ?>
 
-<h3><i class="fa fa-users"></i> <?= lang('Title.listOfRecords', [lang('Module.user')])?></h3>
+<h3><i class="fa fa-users"></i> <?= lang('Title.listOfRecords', [lang('Module.user')]) ?></h3>
 
 <?= $this->endSection() ?>
 
@@ -63,9 +63,9 @@
 							'method' => 'post',
 							'class' => 'delete-action',
 						]) ?>
-							<a href="#" class="text-danger">
-								<i class="fa fa-ban"></i> <?= lang('Label.delete') ?>
-							</a>
+						<a href="#" class="text-danger">
+							<i class="fa fa-ban"></i> <?= lang('Label.delete') ?>
+						</a>
 						<?= form_close() ?>
 					</td>
 				</tr>
@@ -107,22 +107,10 @@
 				$('.list-of-users-search').submit()
 			}
 		})
-		$('.delete-action a').click(function(e) {
-			e.preventDefault()
-			swal({
-				title: '<?= lang('Label.areYouSure') ?>',
-				text: '<?= lang('Crud.onceDeleted') ?>',
-				confirmButtonColor: '#f77581',
-  				cancelButtonColor: '#9fa2a5',
-				icon: 'warning',
-				dangerMode: true,
-				buttons: ['<?= lang('Label.no')?>', '<?= lang('Label.yes')?>'],
-			})
-			.then(will_delete => {
-				if (will_delete) {
-					$(this).parent().submit()
-				}
-			});
+		$('.delete-action a').confirmDelete({
+			title: '<?= lang('Label.areYouSure') ?>',
+			text: '<?= lang('Crud.onceDeleted') ?>',
+			buttons: ['<?= lang('Label.no') ?>', '<?= lang('Label.yes') ?>'],
 		})
 	})
 </script>

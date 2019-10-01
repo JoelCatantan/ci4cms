@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use Config\App;
 
-trait TraitsTimetimes
+trait TraitsTimestamp
 {
     public function setUpdatedAt(string $dateString): self
     {

@@ -53,10 +53,11 @@ class BaseController extends Controller
 		// $this->session = \Config\Services::session();
 
 		$this->session = Services::session();
+		$this->validation = Services::validation();
 
 		Services::renderer()
 			->setVar('form_message', $this->session->getFlashdata('form_message'))
-			->setVar('validation', Services::validation());
+			->setVar('validator', $this->validation);
 	}
 
 	protected function isRecordExist(string $value, Model $model, string $column = 'id')

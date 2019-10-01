@@ -135,7 +135,7 @@ ul.profile-info--nav {
 }
 
 .left-nav-part > ul > li > a {
-    padding: 5px 35px 5px 25px;
+    padding: 10px 35px 10px 25px;
 }
 
 .left-nav-part .jo-collapse-icon {
@@ -578,4 +578,8 @@ table .action a {
 .btn,
 .action > * {
     white-space: nowrap;
+}
+
+.left-nav-part > ul > li > a:hover:not(.jo-link--active) {
+    background-color: #6b7a82;
 }

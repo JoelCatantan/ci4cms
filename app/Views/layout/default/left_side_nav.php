@@ -28,7 +28,7 @@
     <div class="left-nav-part jo-menu">
         <ul>
             <li>
-                <a>
+                <a href="<?= base_url() ?>">
                     <i class="fa fa-dashboard"></i>
                     <label class="primary-menu-label"><?= lang('Module.dashboard') ?></label>
                 </a>

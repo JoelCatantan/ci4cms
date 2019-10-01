@@ -1,6 +1,6 @@
-$(function() {
+$(function () {
     let body = $('body')
-    $('.left-menu-toggle').click(function() {
+    $('.left-menu-toggle').click(function () {
         if (body.hasClass('mini-left-menu')) {
             body.removeClass('mini-left-menu')
             $('.profile-info').removeAttr('style')
@@ -15,7 +15,7 @@ $(function() {
         }
     })
 
-    $('.profile-part').click(function() {
+    $('.profile-part').click(function () {
         let profile_part = $(this)
         if (profile_part.hasClass('profile-part-active')) {
             profile_part.removeClass('profile-part-active')
@@ -25,14 +25,16 @@ $(function() {
     })
 
     fixedHeight()
+
     $(window).resize(fixedHeight)
+
     function fixedHeight() {
         let window_height = $(window).height()
         $('main').css({'min-height': window_height + 'px'})
         $('.right-nav-content').css({height: (window_height - 100) + 'px'})
     }
 
-    $('.right-nav-part-icon a').click(function() {
+    $('.right-nav-part-icon a').click(function () {
         let is_selected = $(this).hasClass('active')
 
         $('.right-nav-part-icon a.active').removeClass('active')
@@ -48,4 +50,20 @@ $(function() {
             $('.right-nav-container').addClass('active')
         }
     })
+
+    $.fn.confirmDelete = function (swalConfig) {
+        $(this).click(function(e) {
+			e.preventDefault()
+			swal(Object.assign({}, {
+				cancelButtonColor: '#9fa2a5',
+				icon: 'warning',
+				dangerMode: true,
+            }, swalConfig))
+			.then(will_delete => {
+				if (will_delete) {
+					$(this).parent().submit()
+				}
+			})
+		})
+    }
 })

@@ -26,10 +26,10 @@
             <?= form_input([
                 'name' => 'username',
                 'value' => $user->username ?? set_value('username'),
-                'class' => 'form-control' . ($validation->hasError('username') ? ' border border-danger' : ''),
+                'class' => 'form-control' . ($validator->hasError('username') ? ' border border-danger' : ''),
             ]) ?>
         </div>
-        <?= view('form_error_template', ['error' => $validation->getError('username')]) ?>
+        <?= view('form_error_template', ['error' => $validator->getError('username')]) ?>
     </div>
 
 
@@ -41,10 +41,10 @@
             <?= form_input([
                 'name' => 'email_address',
                 'value' => $user->email_address ?? set_value('email_address'),
-                'class' => 'form-control' . ($validation->hasError('email_address') ? ' border border-danger' : ''),
+                'class' => 'form-control' . ($validator->hasError('email_address') ? ' border border-danger' : ''),
             ]) ?>
         </div>
-        <?= view('form_error_template', ['error' => $validation->getError('email_address')]) ?>
+        <?= view('form_error_template', ['error' => $validator->getError('email_address')]) ?>
     </div>
 
 
@@ -57,10 +57,10 @@
                 'name' => 'role_id',
                 'options' => $opt_roles,
                 'selected' => $user->role_id ?? set_value('role_id'),
-                'class' => 'form-control' . ($validation->hasError('role_id') ? ' border border-danger' : ''),
+                'class' => 'form-control' . ($validator->hasError('role_id') ? ' border border-danger' : ''),
             ]) ?>
         </div>
-        <?= view('form_error_template', ['error' => $validation->getError('role_id')]) ?>
+        <?= view('form_error_template', ['error' => $validator->getError('role_id')]) ?>
     </div>
 
 
@@ -72,10 +72,10 @@
             <?= form_input([
                 'name' => 'first_name',
                 'value' => $user->first_name ?? set_value('first_name'),
-                'class' => 'form-control' . ($validation->hasError('first_name') ? ' border border-danger' : ''),
+                'class' => 'form-control' . ($validator->hasError('first_name') ? ' border border-danger' : ''),
             ]) ?>
         </div>
-        <?= view('form_error_template', ['error' => $validation->getError('first_name')]) ?>
+        <?= view('form_error_template', ['error' => $validator->getError('first_name')]) ?>
     </div>
 
 
@@ -87,10 +87,10 @@
             <?= form_input([
                 'name' => 'last_name',
                 'value' => $user->last_name ?? set_value('last_name'),
-                'class' => 'form-control' . ($validation->hasError('last_name') ? ' border border-danger' : ''),
+                'class' => 'form-control' . ($validator->hasError('last_name') ? ' border border-danger' : ''),
             ]) ?>
         </div>
-        <?= view('form_error_template', ['error' => $validation->getError('last_name')]) ?>
+        <?= view('form_error_template', ['error' => $validator->getError('last_name')]) ?>
     </div>
 
 

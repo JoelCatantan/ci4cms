@@ -8,7 +8,7 @@ use App\Models\RoleModel;
 
 class User extends BaseEntity
 {
-	use TraitsTimetimes;
+	use TraitsTimestamp;
 	use TraitsDeletedAt;
 
 	protected $casts = ['id' => 'int'];
@@ -33,6 +33,6 @@ class User extends BaseEntity
 
 	public function getRole()
 	{
-		return (new RoleModel)->getOptionDetailByID($this->role_id);
+		return (new RoleModel)->find($this->role_id);
 	}
 }

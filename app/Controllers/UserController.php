@@ -60,6 +60,7 @@ class UserController extends BaseController
 		return view('users/form', [
 			'is_add' => true,
 			'opt_roles' => $this->role_model->getDropdownOptions(),
+			'validation' => $this->validator,
 		]);
 	}
 

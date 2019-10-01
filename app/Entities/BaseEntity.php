@@ -25,9 +25,9 @@ class BaseEntity extends Entity
 
 	public function getTimestamp(string $format, string $field): string
 	{
-		$created_at = new Carbon($this->attributes[$field]);
-		$created_at->setTimezone($this->session->get('timezone'));
+		$timestamp = new Carbon($this->attributes[$field]);
+		$timestamp->setTimezone($this->session->get('timezone'));
 
-		return $created_at->format($format);
+		return $timestamp->format($format);
 	}
 }

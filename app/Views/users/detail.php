@@ -44,7 +44,7 @@
         </label>
         <div class="col-md-6">
             <div class="form-control form-value">
-                <?= $user->role ?>
+                <?= $user->role->display_name ?>
             </div>
         </div>
     </div>
