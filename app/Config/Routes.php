@@ -89,6 +89,11 @@ $routes->group('/', ['filter' => 'logged_in'], function ($routes) {
 		$routes->post('(:segment)', 'UserController::update/$1');
 		$routes->post('(:segment)/delete', 'UserController::delete/$1');
 	});
+
+	$routes->group('roles', function ($routes) {
+		$routes->get('', 'RoleController::index');
+		$routes->post('(:segment)/delete', 'RoleController::delete/$1');
+	});
 });
 
 $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);

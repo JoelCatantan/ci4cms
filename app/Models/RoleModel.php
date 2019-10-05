@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 
 class RoleModel extends Model
 {
-	use Dropdownoptions;
+	use TraitsDropdownoptions;
 
 	protected $table         = 'roles';
 	protected $primaryKey    = 'id';
 	protected $returnType    = 'App\Entities\Role';
-	protected $allowedFields = ['display_name'];
+	protected $allowedFields = ['display_name', 'description'];
 
 	protected $useTimestamps  = true;
 	protected $useSoftDeletes = true;

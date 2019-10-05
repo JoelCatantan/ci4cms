@@ -8,17 +8,11 @@ use App\Models\RoleModel;
 
 class User extends BaseEntity
 {
+	use TraitsTimestamp;
+	use TraitsDeletedAt;
+
 	protected $casts = ['id' => 'int'];
 	protected $dates = [];
-	protected $attributes = [
-        'email_address' => null,
-        'first_name' => null,
-        'id' => null,
-        'last_name' => null,
-        'password_hash' => null,
-        'salt' => null,
-        'username' => null,
-    ];
 
 	const DEFAULT_PASSWORD = '123456';
 
@@ -39,6 +33,6 @@ class User extends BaseEntity
 
 	public function getRole()
 	{
-		return (new RoleModel)->getOptionDetailByID($this->role_id);
+		return (new RoleModel)->find($this->role_id);
 	}
 }

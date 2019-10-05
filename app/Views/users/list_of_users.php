@@ -4,7 +4,7 @@
 
 <?= $this->section('page_title') ?>
 
-<h3><i class="fa fa-users"></i> <?= lang('Title.listOfRecords', [lang('Module.user')])?></h3>
+<h3><i class="fa fa-users"></i> <?= lang('Title.listOfRecords', [lang('Module.user')]) ?></h3>
 
 <?= $this->endSection() ?>
 
@@ -26,11 +26,6 @@
 		</div>
 		<?= form_close() ?>
 	</div>
-	<div class="col-md-2 offset-md-7 text-right">
-		<a href="<?= base_url('users/new') ?>" class="btn btn-primary">
-			<i class="fa fa-plus"></i> <?= lang('Label.add', [lang('Module.user')])?>
-		</a>
-	</div>
 </div>
 
 <table class="table table-hover mt-2">
@@ -41,8 +36,8 @@
 			<th><?= lang('Label.firstName') ?></th>
 			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
-			<th><?= lang('Label.created_at') ?></th>
-			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.createdAt') ?></th>
+			<th><?= lang('Label.modifiedAt') ?></th>
 			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</thead>
@@ -68,9 +63,9 @@
 							'method' => 'post',
 							'class' => 'delete-action',
 						]) ?>
-							<a href="#" class="text-danger">
-								<i class="fa fa-ban"></i> <?= lang('Label.delete') ?>
-							</a>
+						<a href="#" class="text-danger">
+							<i class="fa fa-ban"></i> <?= lang('Label.delete') ?>
+						</a>
 						<?= form_close() ?>
 					</td>
 				</tr>
@@ -88,8 +83,8 @@
 			<th><?= lang('Label.firstName') ?></th>
 			<th><?= lang('Label.lastName') ?></th>
 			<th><?= lang('Label.role') ?></th>
-			<th><?= lang('Label.created_at') ?></th>
-			<th><?= lang('Label.modified_at') ?></th>
+			<th><?= lang('Label.createdAt') ?></th>
+			<th><?= lang('Label.modifiedAt') ?></th>
 			<th><?= lang('Label.action') ?></th>
 		</tr>
 	</tfoot>
@@ -112,20 +107,10 @@
 				$('.list-of-users-search').submit()
 			}
 		})
-		$('.delete-action a').click(function(e) {
-			e.preventDefault()
-			swal({
-				title: '<?= lang('Label.areYouSure') ?>',
-				text: '<?= lang('Crud.onceDeleted') ?>',
-				icon: 'warning',
-				dangerMode: true,
-				buttons: ['<?= lang('Label.no')?>', '<?= lang('Label.yes')?>'],
-			})
-			.then(will_delete => {
-				if (will_delete) {
-					$(this).parent().submit()
-				}
-			});
+		$('.delete-action a').confirmDelete({
+			title: '<?= lang('Label.areYouSure') ?>',
+			text: '<?= lang('Crud.onceDeleted') ?>',
+			buttons: ['<?= lang('Label.no') ?>', '<?= lang('Label.yes') ?>'],
 		})
 	})
 </script>

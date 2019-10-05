@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Config;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Utils\Auth;
@@ -20,7 +19,7 @@ class LoginController extends BaseController
 
 	public function __construct()
 	{
-		$this->auth       = new Auth;
+		$this->auth = new Auth;
 		$this->user_model = new UserModel();
 	}
 
@@ -32,7 +31,7 @@ class LoginController extends BaseController
 		}
 
 		return view('layout/' . DEFAULT_TEMPLATE . '/login', [
-			'validation_errors' => $this->session->getFlashdata('erros'),
+			'validation_errors' => $this->session->getFlashdata('login_errors'),
 		]);
 	}
 
@@ -47,7 +46,7 @@ class LoginController extends BaseController
 		else
 		{
 			$this->session->setFlashdata('login_errors', $this->validation->getErrors());
-			$redirect = $this->redirectWithErrorFlasData('login');
+			$redirect = redirect()->to('login');
 		}
 
 		return $redirect;

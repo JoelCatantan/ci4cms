@@ -2,10 +2,19 @@
 
 namespace App\Entities;
 
-use CodeIgniter\Entity;
-
-class Role extends Entity
+class Role extends BaseEntity
 {
+	use TraitsTimestamp;
+	use TraitsDeletedAt;
+
+	protected $casts = ['id' => 'int'];
+	protected $dates = [];
+
 	const DEVELOPER = 10000;
-	const ADMIN     = 10001;
+	const ADMIN = 10001;
+
+	public function isAdmin(): bool
+	{
+		return $this->attributes['id'] === self::ADMIN;
+	}
 }

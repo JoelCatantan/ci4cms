@@ -28,46 +28,40 @@
     <div class="left-nav-part jo-menu">
         <ul>
             <li>
-                <a>
-                    <i class="fa fa-dashboard"></i> <label class="primary-menu-label">Dashboard</label>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa fa-users"></i> <label class="primary-menu-label">Users</label>
+                <a href="<?= base_url() ?>">
+                    <i class="fa fa-dashboard"></i>
+                    <label class="primary-menu-label"><?= lang('Module.dashboard') ?></label>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-sitemap"></i> <label class="primary-menu-label">Roles</label>
+                    <i class="fa fa-wrench"></i>
+                    <label class="primary-menu-label"><?= lang('Label.maintenance') ?></label>
                 </a>
                 <ul>
-                    <li><a>Priveleges</a></li>
-                    <li><a>Account</a></li>
-                    <li><a href="#">Profile</a>
+                    <li>
+                        <a href="#"><?= lang('Label.module', [lang('Module.user')]) ?></a>
                         <ul>
-                            <li><a>Change password</a></li>
-                            <li><a>Content</a></li>
+                            <li>
+                                <a href="<?= base_url('users/new') ?>">
+                                    <?= lang('Label.addNew') ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('users') ?>">
+                                    <?= lang('Label.listOfRecords', [lang('Module.user')]) ?>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-cog"></i> <label class="primary-menu-label">Settings</label>
-                </a>
-                <ul>
-                    <li><a href="#">Priveleges</a>
+                    <li>
+                        <a href="#"><?= lang('Label.module', [lang('Module.role')]) ?></a>
                         <ul>
-                            <li><a>Change password</a></li>
-                            <li><a>Content</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Account</a></li>
-                    <li><a href="#">Profile</a>
-                        <ul>
-                            <li><a>Change password</a></li>
-                            <li><a>Content</a></li>
+                            <li>
+                                <a href="<?= base_url('roles') ?>">
+                                    <?= lang('Label.listOfRecords', [lang('Module.role')]) ?>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

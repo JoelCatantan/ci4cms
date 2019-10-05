@@ -17,6 +17,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Model;
 use Config\Services;
 use Psr\Log\LoggerInterface;
 
@@ -52,5 +53,22 @@ class BaseController extends Controller
 		// $this->session = \Config\Services::session();
 
 		$this->session = Services::session();
+		$this->validation = Services::validation();
+
+		Services::renderer()
+			->setVar('form_message', $this->session->getFlashdata('form_message'))
+			->setVar('validator', $this->validation);
+	}
+
+	protected function isRecordExist(string $value, Model $model, string $column = 'id')
+	{
+		$isRecordExist = boolval($model->where($column, $value)->countAllResults());
+
+		if (!$isRecordExist)
+		{
+			$this->session->setFlashdata('form_message', ['message' => lang('Crud.noSuchRecord'), 'type' => 'error']);
+		}
+
+		return $isRecordExist;
 	}
 }

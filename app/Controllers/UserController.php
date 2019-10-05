@@ -3,14 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\ResourceBaseController;
-use App\Entities\User;
 use App\Models\RoleModel;
 use App\Models\UserModel;
 use Config\App;
 
-class UserController extends ResourceBaseController
+class UserController extends BaseController
 {
 	private $user_model;
+	private $role_model;
 
 	public function __construct()
 	{
@@ -60,6 +60,7 @@ class UserController extends ResourceBaseController
 		return view('users/form', [
 			'is_add' => true,
 			'opt_roles' => $this->role_model->getDropdownOptions(),
+			'validation' => $this->validator,
 		]);
 	}
 
@@ -200,11 +201,11 @@ class UserController extends ResourceBaseController
 					'is_unique[users.email_address' . ($user_id ? ",id,$user_id" : '') . ']',
 			],
 			'first_name' => [
-				'label' => lang('Label.first_name'),
+				'label' => lang('Label.firstName'),
 				'rules' => 'required',
 			],
 			'last_name' => [
-				'label' => lang('Label.last_name'),
+				'label' => lang('Label.lastName'),
 				'rules' => 'required',
 			],
 			'role_id' => [
