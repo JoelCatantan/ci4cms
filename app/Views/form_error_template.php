@@ -1,5 +1,5 @@
 <?php if ($error) : ?>
-    <div class="col-md-4">
-        <p class="text-danger"><?= $error ?></p>
+    <div class="col-md-3">
+        <p class="text-danger text-right"><?= $error ?></p>
     </div>
 <?php endif ?>

@@ -13,7 +13,7 @@ class LoggedIn implements FilterInterface
 	{
 		if (! boolval(Services::session()->auth_id))
 		{
-			return redirect('login');
+			return redirect('login')->with('redirect', uri_string());
 		}
 	}
 

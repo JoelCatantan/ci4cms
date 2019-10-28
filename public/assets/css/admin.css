@@ -159,10 +159,9 @@ main .header {
     height: 36px;
     position: fixed;
     top: 0;
-    left: 220px;
+    left: 225px;
     right: 0;
-    box-shadow: 0 0 5px -2px #5d5d5d;
-    border-left: solid 5px #5eb358;
+    box-shadow: 0 0 3px -1px #5d5d5d;
     background-color: #f7f7f7;
     z-index: 1;
 }
@@ -186,14 +185,12 @@ main .header {
 }
 
 .left-menu-toggle:hover,
-.top-nav-part a:hover,
-.right-nav--content .card:hover {
+.top-nav-part a:hover {
     background-color: #ddd;
 }
 
 .left-menu-toggle:active,
-.top-nav-part a:active,
-.right-nav--content .card:active {
+.top-nav-part a:active {
     background-color: #d0d0d0;
 }
 
@@ -204,7 +201,7 @@ main {
 }
 
 .mini-left-menu main .header {
-    left: 50px;
+    left: 55px;
     --webkit-transition: left .3s;
     transition: left .3s;
 }
@@ -255,6 +252,7 @@ main {
     top: 0;
     width: 175px;
     border: solid 1px #5eb358;
+    z-index: 1;
 }
 
 .mini-left-menu .left-nav-part > ul > li > .jo-link {
@@ -365,15 +363,15 @@ main {
     list-style: none;
 }
 
-.right-nav a:not(.card) {
-    color: #f7f7f7;
+.right-nav-icon-toggle {
+    color: #f7f7f7 !important;
     background-color: #5eb358;
     padding: 10px 0px 10px 5px;
     margin-bottom: 5px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     font-size: 15px;
-    text-decoration: none;
+    text-decoration: none !important;
     width: 35px;
     text-align: center;
 }
@@ -382,12 +380,16 @@ main {
     border: solid 1px #5eb358;
     position: fixed;
     border-left-width: 3px;
-    top: 70px;
+    top: 38px;
     width: 350px;
     right: -350px;
     border-right: none;
     background-color: #fff;
     transition: right .3s;
+}
+
+.right-nav-icon-toggle.active {
+    color: #5eb358 !important;
 }
 
 .right-nav-content {
@@ -404,9 +406,8 @@ main {
     transition: right .3s;
 }
 
-.right-nav-container--header {
+.right-nav-container--header h5 {
     color: #5eb358;
-    font-size: 16px;
     padding: 5px 10px;
 }
 
@@ -416,6 +417,7 @@ main {
     opacity: 0;
     visibility: hidden;
     position: absolute;
+    width: 100%;
 }
 
 .right-nav--content {
@@ -426,26 +428,6 @@ main {
 .right-nav-content > .active {
     opacity: 1;
     visibility: visible;
-}
-
-.card--header {
-    font-size: 15px;
-}
-
-.right-nav--content .card {
-    background: none;
-    border: none;
-    padding: 7px 15px;
-    color: #555;
-    text-decoration: none;
-}
-
-.right-nav--content .card--header {
-    margin-bottom: 6px;
-}
-
-.right-nav--content .card--content {
-    color: #777;
 }
 
 .right-nav-part-icon a.active {
@@ -476,10 +458,10 @@ main .body {
 }
 
 @media only screen and (min-width: 800px) {
-    main .body,
-    main .body .btn,
-    main .body .form-control,
-    main .body .form-group {
+    .btn,
+    .body,
+    .form-control,
+    .form-group {
         font-size: 13px;
     }
 
@@ -582,4 +564,14 @@ table .action a {
 
 .left-nav-part > ul > li > a:hover:not(.jo-link--active) {
     background-color: #6b7a82;
+}
+
+div.table {
+    overflow-x: auto;
+}
+
+.right-nav--content .card {
+    border: none;
+    border-radius: 0;
+    margin: 15px 5px;
 }

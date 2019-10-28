@@ -30,8 +30,22 @@ $(function () {
 
     function fixedHeight() {
         let window_height = $(window).height()
-        $('main').css({'min-height': window_height + 'px'})
-        $('.right-nav-content').css({height: (window_height - 100) + 'px'})
+        let window_width = $(window).width()
+
+        if (window_width < 768) {
+            $('main').removeAttr('style')
+        } else {
+            $('main').css({'min-height': window_height + 'px'})
+            $('.right-nav-content').css({height: (window_height - 42) + 'px'})
+        }
+
+        if (window_width <= 1000) {
+            $('body').addClass('mini-left-menu')
+            $('.left-menu-toggle').css('display', 'none')
+        } else {
+            $('body').removeClass('mini-left-menu')
+            $('.left-menu-toggle').css('display', 'inline-block')
+        }
     }
 
     $('.right-nav-part-icon a').click(function () {

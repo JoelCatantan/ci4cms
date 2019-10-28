@@ -19,7 +19,7 @@
     <?= form_open(base_url('users/' . ($edit_record_id ?? ''))) ?>
 
     <div class="form-group row">
-        <label class="col-md-2 col-form-label text-right" for="username">
+        <label class="col-md-2 offset-md-1 col-form-label" for="username">
             <?= lang('Label.username') ?> *
         </label>
         <div class="col-md-6">
@@ -34,7 +34,7 @@
 
 
     <div class="form-group row">
-        <label class="col-md-2 col-form-label text-right" for="email_address">
+        <label class="col-md-2 offset-md-1 col-form-label" for="email_address">
             <?= lang('Label.emailAddress') ?> *
         </label>
         <div class="col-md-6">
@@ -49,7 +49,7 @@
 
 
     <div class="form-group row">
-        <label class="col-md-2 col-form-label text-right" for="email_address">
+        <label class="col-md-2 offset-md-1 col-form-label" for="email_address">
             <?= lang('Label.role') ?> *
         </label>
         <div class="col-md-6">
@@ -65,7 +65,7 @@
 
 
     <div class="form-group row mt-5">
-        <label class="col-md-2 col-form-label text-right" for="first_name">
+        <label class="col-md-2 offset-md-1 col-form-label" for="first_name">
             <?= lang('Label.firstName') ?> *
         </label>
         <div class="col-md-6">
@@ -80,7 +80,7 @@
 
 
     <div class="form-group row">
-        <label class="col-md-2 col-form-label text-right" for="last_name">
+        <label class="col-md-2 offset-md-1 col-form-label" for="last_name">
             <?= lang('Label.lastName') ?> *
         </label>
         <div class="col-md-6">
@@ -95,7 +95,7 @@
 
 
     <div class="row mt-5">
-        <div class="offset-md-2 col-md-6">
+        <div class="offset-md-3 col-md-6">
             <button class="btn btn-primary">
                 <i class="fa fa-save"></i> <?= lang('Label.submit') ?>
             </button>

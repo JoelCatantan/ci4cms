@@ -30,6 +30,8 @@ class LoginController extends BaseController
 			return redirect('/');
 		}
 
+		$this->session->keepFlashdata('redirect');
+
 		return view('layout/' . DEFAULT_TEMPLATE . '/login', [
 			'validation_errors' => $this->session->getFlashdata('login_errors'),
 		]);
@@ -37,7 +39,7 @@ class LoginController extends BaseController
 
 	public function verifyCredentials(): ?RedirectResponse
 	{
-		$redirect = redirect('/');
+		$redirect = redirect($this->session->getFlashdata('redirect') ?? '/');
 
 		if ($this->validate($this->rules))
 		{
@@ -45,6 +47,7 @@ class LoginController extends BaseController
 		}
 		else
 		{
+			$this->session->keepFlashdata('redirect');
 			$this->session->setFlashdata('login_errors', $this->validation->getErrors());
 			$redirect = redirect()->to('login');
 		}
